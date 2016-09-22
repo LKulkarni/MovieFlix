@@ -3,10 +3,12 @@ package com.movieflix.app.entity;
 import java.util.Date;
 import java.util.UUID;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -26,8 +28,10 @@ public class User {
 	private Date dateOfBirth;
 	private String password;
 	private boolean active;
-	@OneToOne(fetch = FetchType.LAZY)
+	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
 	private UserPayment userPayment;
+	@ManyToOne(fetch = FetchType.LAZY)
+	private SubscriptionPlan userPlan;
 
 	public User() {
 
@@ -96,6 +100,14 @@ public class User {
 
 	public void setUserPayment(UserPayment userPayment) {
 		this.userPayment = userPayment;
+	}
+
+	public SubscriptionPlan getUserPlan() {
+		return userPlan;
+	}
+
+	public void setUserPlan(SubscriptionPlan userPlan) {
+		this.userPlan = userPlan;
 	}
 
 }
