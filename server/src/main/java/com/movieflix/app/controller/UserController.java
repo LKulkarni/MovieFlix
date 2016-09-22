@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.movieflix.app.entity.User;
@@ -33,7 +34,8 @@ public class UserController {
 	@RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public User create(@RequestBody User u) {
 
-		return service.create(u);
+		User user = service.create(u);
+		return user;
 	}
 
 	@RequestMapping(method = RequestMethod.PUT, value = "/{id}", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
@@ -46,4 +48,14 @@ public class UserController {
 		service.delete(userId);
 	}
 
+	@RequestMapping(method = RequestMethod.GET, value = "/activate/{id}")
+	public void activateUser(@PathVariable("id") String userId) {
+		service.activateUser(userId);
+	}
+
+	@RequestMapping(method = RequestMethod.POST, value = "/authenticate")
+	public User authenticateUser(@RequestParam(name = "email") String email,
+			@RequestParam(name = "pass") String password) {
+		return service.authenticateUser(email, password);
+	}
 }

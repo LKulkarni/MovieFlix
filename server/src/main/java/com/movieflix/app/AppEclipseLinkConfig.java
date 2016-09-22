@@ -7,8 +7,11 @@ import javax.sql.DataSource;
 
 import org.eclipse.persistence.config.PersistenceUnitProperties;
 import org.eclipse.persistence.logging.SessionLog;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
@@ -18,8 +21,12 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
+@PropertySource("classpath:mysql.properties")
 public class AppEclipseLinkConfig {
-
+	
+	@Autowired
+	private Environment env;
+	
 	@Bean
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 		LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
@@ -34,10 +41,10 @@ public class AppEclipseLinkConfig {
 	@Bean
 	public DataSource dataSource() {
 		DriverManagerDataSource ds = new DriverManagerDataSource();
-		ds.setDriverClassName("com.mysql.jdbc.Driver");
-		ds.setUrl("jdbc:mysql://localhost:3306/movieflix?useSSL=false");
-		ds.setUsername("root");
-		ds.setPassword("root");
+		ds.setDriverClassName(env.getProperty("mysql.driverClass"));
+		ds.setUrl(env.getProperty("mysql.url"));
+		ds.setUsername(env.getProperty("mysql.username"));
+		ds.setPassword(env.getProperty("mysql.password"));
 		return ds;
 	}
 
@@ -49,7 +56,7 @@ public class AppEclipseLinkConfig {
 
 	private Properties jpaProperties() {
 		Properties prop = new Properties();
-		prop.setProperty(PersistenceUnitProperties.DDL_GENERATION, PersistenceUnitProperties.DROP_AND_CREATE);
+		prop.setProperty(PersistenceUnitProperties.DDL_GENERATION, PersistenceUnitProperties.CREATE_OR_EXTEND);
 		prop.setProperty(PersistenceUnitProperties.LOGGING_LEVEL, SessionLog.FINER_LABEL);
 		prop.setProperty(PersistenceUnitProperties.WEAVING, "false");
 		return prop;

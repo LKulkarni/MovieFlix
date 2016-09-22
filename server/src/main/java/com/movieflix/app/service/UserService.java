@@ -5,7 +5,7 @@ import java.util.List;
 import com.movieflix.app.entity.User;
 
 public interface UserService {
-	
+
 	List<User> findAll();
 
 	User findOne(String userId);
@@ -15,5 +15,9 @@ public interface UserService {
 	User update(String userId, User user);
 
 	void delete(String userId);
+
+	void activateUser(String userId);
+
+	User authenticateUser(String email, String password);
 
 }

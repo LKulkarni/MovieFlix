@@ -5,7 +5,9 @@ import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -24,6 +26,8 @@ public class User {
 	private Date dateOfBirth;
 	private String password;
 	private boolean active;
+	@OneToOne(fetch = FetchType.LAZY)
+	private UserPayment userPayment;
 
 	public User() {
 
@@ -84,6 +88,14 @@ public class User {
 
 	public void setActive(boolean active) {
 		this.active = active;
+	}
+
+	public UserPayment getUserPayment() {
+		return userPayment;
+	}
+
+	public void setUserPayment(UserPayment userPayment) {
+		this.userPayment = userPayment;
 	}
 
 }

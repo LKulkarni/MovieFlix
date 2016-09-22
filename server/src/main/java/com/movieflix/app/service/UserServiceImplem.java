@@ -10,7 +10,6 @@ import com.movieflix.app.exceptions.EntityAlreadyExistsException;
 import com.movieflix.app.exceptions.EntityNotFoundException;
 import com.movieflix.app.repository.UserRepository;
 
-
 @Service
 
 public class UserServiceImplem implements UserService {
@@ -61,6 +60,30 @@ public class UserServiceImplem implements UserService {
 			throw new EntityNotFoundException("User not found");
 		repository.delete(user);
 
+	}
+
+	@Override
+	@Transactional
+	public void activateUser(String userId) {
+		User user = repository.findOne(userId);
+		if (user == null)
+			throw new EntityNotFoundException("User not found");
+		user.setActive(true);
+		repository.update(user);
+
+	}
+
+	@Override
+	public User authenticateUser(String email, String password) {
+		User user = repository.findByLoginCredentials(email, password);
+		if (user == null)
+			throw new EntityNotFoundException("User not found");
+
+		if (!user.isActive()) {
+			throw new EntityNotFoundException("User not found or not active ");
+		}
+
+		return user;
 	}
 
 }

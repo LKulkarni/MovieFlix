@@ -25,11 +25,12 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @EnableTransactionManagement
 @ComponentScan
-@PropertySource({ "classpath:hibernate.properties", "classpath:mysql.properties" })
+@PropertySource({"classpath:mysql.properties" })
 public class AppHibernateConfig {
 
 	@Autowired
 	private Environment env;
+
 
 	@Bean
 	public LocalSessionFactoryBean sessionFactoryBean() {
@@ -48,7 +49,7 @@ public class AppHibernateConfig {
 		dataSource.setUrl("jdbc:mysql://localhost:3306/movieflix");
 		dataSource.setUsername(env.getProperty("mysql.username"));
 		dataSource.setPassword(env.getProperty("mysql.password"));
-
+	
 		return dataSource;
 	}
 
