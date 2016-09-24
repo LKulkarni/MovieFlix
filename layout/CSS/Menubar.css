@@ -155,10 +155,14 @@ li#notification:hover .dropdown-content {
     color: black;
 }
 
-.material-icons {
+li#notification .material-icons {
     color: white;
     padding: 0;
     margin: 0;
+}
+
+.badge {
+    background-color: red;
 }
 
 /*Responsive*/
@@ -192,6 +196,7 @@ li#notification:hover .dropdown-content {
         color: black;
         width: 80%;
         margin: 0 10%;
+
     }
 
     ul.topnav li#browse:hover .dropdown-content p {

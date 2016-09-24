@@ -9,10 +9,15 @@
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
           integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="../CSS/Menubar.css"/>
     <link rel="stylesheet" href="../CSS/Homepage.css"/>
     <link rel="stylesheet" href="../CSS/Global.css"/>
+    <link rel="stylesheet" href="../CSS/Footer.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 <!--navbar-->
@@ -32,14 +37,14 @@
         <button class="sign">Sign In</button>
     </li>
     <li id="notification" class="right">
-        <a href="#" class="dropbtn"><i class="material-icons">notifications</i></a>
+        <a href="#" class="dropbtn"><i class="material-icons">notifications</i><span class="badge">4</span></a>
         <div class="dropdown-content">
             <a href="#">No notifications</a>
         </div>
 
     </li>
 
-</ul>
+</ul><!--end of navbar-->
 <!--body-->
 
 <div class="jumbotron">
@@ -51,8 +56,109 @@
 </div>
 <div id="jumbotron-contents-micro" class="container-fluid">
     <h2>See whats new!!!</h2>
-    <p><a id="latestLink">Narcos Season 2 Available Now</a></p>
+    <p><a id="latestLink-micro">Narcos Season 2 Available Now</a></p>
     <p><a class="btn btn-danger btn-lg" href="#" role="button">Sign Up Now!</a></p>
 </div>
+<!--end of jumbotron-->
+<div id="navtabs" class="container-fluid">
+    <ul class="nav nav-pills nav-justified">
+        <li role="presentation" class="active"><a href="#originals" data-toggle="tab"><p><i
+                class="material-icons">movie</i>
+            Originals</p></a></li>
+        <li role="presentation"><a href="#watchanywhere" data-toggle="tab"><p><i class="material-icons">devices</i>Devices
+        </p></a></li>
+        <li role="presentation"><a href="#pickyourprice" data-toggle="tab"><p><i class="material-icons">redeem</i>
+            Plans</p></a></li>
+    </ul>
+
+    <div id="navtab-content" class="tab-content clearfix">
+        <div class="tab-pane active" id="originals">
+            <div class="row">
+                <div class="col-lg-12"> Image1</div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4"> Image2</div>
+                <div class="col-lg-4"> Image3</div>
+                <div class="col-lg-4"> Image4</div>
+            </div>
+
+        </div>
+        <div class="tab-pane" id="watchanywhere">
+            <div class="row">
+                <div class="col-sm-12 col-md-4">
+                    <div class="thumbnail">
+                        <img src="../Resources/movieflix-tv.jpg" alt="TV">
+                        <div class="caption">
+                            <h3>Watch on your TV</h3>
+                            <p>Smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-4">
+                    <div class="thumbnail">
+                        <img src="../Resources/movieflix-mobile.jpg" alt="Mobile">
+                        <div class="caption">
+                            <h3>Watch on the go</h3>
+                            <p>iPhone, iPad, Android phones and tablets, Windows phones and tablets.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-4">
+                    <div class="thumbnail">
+                        <img src="../Resources/movieflix-pc.jpg" alt="PC">
+                        <div class="caption">
+                            <h3>Use any computer</h3>
+                            <p>Watch right on Netflix.com.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-pane" id="pickyourprice">
+            the plans go in here
+        </div>
+
+
+    </div>
+
+</div>
+<!--end of navtabs-->
+
+<footer>
+    <div class="wrap">
+        <div class="row">
+            <div class="col-md-12">
+                <p> Questions? Call 0-000-000-0000</p>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="table">
+                <tbody>
+                <tr>
+                    <td>FAQ</td>
+                    <td>Help Center</td>
+                    <td>Account</td>
+                    <td>Media Center</td>
+                </tr>
+                <tr>
+                    <td>Investor Relations</td>
+                    <td>Jobs</td>
+                    <td>Buy/Redeem Gift</td>
+                    <td>Ways to Watch</td>
+                </tr>
+                <tr>
+                    <td>Terms of Use</td>
+                    <td>Privacy</td>
+                    <td>Cookie Preferences</td>
+                    <td>Speed Test</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+</footer>
 </body>
 </html>

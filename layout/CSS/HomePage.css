@@ -1,5 +1,7 @@
+/* CSS for homepage */
+
 .jumbotron {
-    height: 400px;
+    height: 600px;
     background: url("../Resources/jumbotron.jpg");
     background-size: contain;
     margin-bottom: 5px;
@@ -32,10 +34,54 @@
     }
 }
 
-#jumbotron-components a#latestLink {
+#jumbotron-contents a#latestLink {
     font-weight: 500;
     color: white;
     text-decoration: underline;
+    cursor: pointer;
+}
+
+#navtabs {
+    width: 70%;
+    margin: auto;
+}
+
+/* Nav-tabs*/
+#navtabs ul li {
+    text-align: center;
+    color: white;
+}
+
+#navtabs ul li p {
+    color: lightgrey;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 0;
+}
+
+#navtabs ul li a p .material-icons {
+    font-size: 32px;
+    display: block;
+}
+
+#navtabs .nav-pills > li.active a p, #navtabs .nav-pills > li.active > a, #navtabs .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover {
+    color: white;
+    background-color: transparent;
+}
+
+#navtabs ul li a:hover, #navtabs ul li a p:hover {
+    background: none;
+    color: white;
+}
+
+div#watchanywhere .thumbnail {
+    background: transparent;
+    border: none;
+}
+
+div#watchanywhere .thumbnail .caption h3, div#watchanywhere .thumbnail .caption p {
+    color: white;
+    text-align: center;
 }
 
 /*Responsive*/
@@ -43,10 +89,11 @@
     #jumbotron-contents {
         display: none;
 
+
     }
 
     .jumbotron {
-        height: 200px;
+        height: 150px;
         background: url("../Resources/jumbotron.jpg");
         background-size: contain;
         animation: zoomjumbo 4s ease-out;
