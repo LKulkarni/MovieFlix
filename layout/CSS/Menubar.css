@@ -27,6 +27,7 @@ ul.topnav li#logo img {
     height: 50px;
     margin: 0;
     padding: 0;
+    border: none;
 }
 
 ul.topnav li button.sign {
