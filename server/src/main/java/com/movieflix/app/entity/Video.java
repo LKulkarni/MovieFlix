@@ -1,10 +1,13 @@
 package com.movieflix.app.entity;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -41,9 +44,12 @@ public class Video {
 	@Column(unique = true)
 	private String imdbID;
 	private String type;
+	@ManyToMany(mappedBy="watched")
+	private Set<User> viewers;
 
 	public Video() {
 		this.Id = "vid" + UUID.randomUUID().toString();
+		this.viewers= new HashSet<User>();
 		// this.Genre = new HashSet<>();
 		// this.Actors = new HashSet<>();
 		// this.Language = new HashSet<>();
