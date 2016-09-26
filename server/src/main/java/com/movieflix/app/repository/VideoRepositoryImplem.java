@@ -9,7 +9,12 @@ import javax.persistence.TypedQuery;
 import org.springframework.stereotype.Repository;
 
 import com.movieflix.app.entity.Video;
-
+/**
+ * 
+ * @author Loukik
+ *
+ *	This repository class connects to the Video table in the database
+ */
 @Repository
 public class VideoRepositoryImplem implements VideoRepository {
 

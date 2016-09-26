@@ -14,6 +14,10 @@ public class SubscriptionPlan {
 	private String planName;
 	private Integer screens;
 	private boolean hd;
+	private boolean ultraHd;
+	private boolean allDevices;
+	private boolean cancelAnytime;
+	private boolean firstMonthFree;
 	private Float cost;
 
 	public SubscriptionPlan() {
@@ -60,4 +64,41 @@ public class SubscriptionPlan {
 		this.planId = planId;
 	}
 
+	public boolean isUltraHd() {
+		return ultraHd;
+	}
+
+	public void setUltraHd(boolean ultraHd) {
+		this.ultraHd = ultraHd;
+	}
+
+	public boolean isAllDevices() {
+		return allDevices;
+	}
+
+	public void setAllDevices(boolean allDevices) {
+		this.allDevices = allDevices;
+	}
+
+	public boolean isCancelAnytime() {
+		return cancelAnytime;
+	}
+
+	public void setCancelAnytime(boolean cancelAnytime) {
+		this.cancelAnytime = cancelAnytime;
+	}
+
+	public boolean isFirstMonthFree() {
+		return firstMonthFree;
+	}
+
+	public void setFirstMonthFree(boolean firstMonthFree) {
+		this.firstMonthFree = firstMonthFree;
+	}
+
+	@Override
+	public String toString()
+	{
+		return "[  Plan: "+planName+" Cost:"+ cost+" ]";
+	}
 }

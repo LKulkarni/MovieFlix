@@ -2,12 +2,18 @@ package com.movieflix.app;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-public class AppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer{
+/**
+ * 
+ * @author Loukik
+ *
+ *         This class is the entry point for the web application
+ */
+public class AppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
 		// TODO Auto-generated method stub
-		return new Class[]{AppSpringConfig.class, AppEclipseLinkConfig.class};
+		return new Class[] { AppSpringConfig.class, AppEclipseLinkConfig.class };
 	}
 
 	@Override
@@ -19,7 +25,7 @@ public class AppInitializer extends AbstractAnnotationConfigDispatcherServletIni
 	@Override
 	protected String[] getServletMappings() {
 		// TODO Auto-generated method stub
-		return new String[]{"/app/*"};
+		return new String[] { "/app/*" };
 	}
 
 }

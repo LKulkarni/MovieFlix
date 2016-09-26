@@ -10,6 +10,12 @@ import org.springframework.stereotype.Repository;
 
 import com.movieflix.app.entity.SubscriptionPlan;
 
+/**
+ * 
+ * @author Loukik
+ *
+ *	This repository class connects to the Subscription table in the database
+ */
 @Repository
 public class SubscriptionPlanRepositoryImplem implements SubscriptionPlanRepository {
 

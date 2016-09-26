@@ -10,6 +10,12 @@ import org.springframework.stereotype.Repository;
 
 import com.movieflix.app.entity.UserPayment;
 
+/**
+ * 
+ * @author Loukik
+ *
+ *	This repository class connects to the User Payment table in the database
+ */
 @Repository
 public class UserPaymentRepositoryImplem implements UserPaymentRepository {
 

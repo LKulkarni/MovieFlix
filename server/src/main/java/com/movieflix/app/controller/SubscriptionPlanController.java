@@ -13,6 +13,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.movieflix.app.entity.SubscriptionPlan;
 import com.movieflix.app.service.SubscriptionPlanService;
 
+/**
+ * 
+ * @author Loukik
+ *
+ *         This controller handles all SubscriptionPlan related requests
+ */
 @RestController
 @RequestMapping(value = "/userplans", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class SubscriptionPlanController {
@@ -44,7 +50,7 @@ public class SubscriptionPlanController {
 
 	@RequestMapping(method = RequestMethod.DELETE, value = "/{id}")
 	public void deletePlan(@RequestParam("id") String planId) {
-		 service.deletePlan(planId);
+		service.deletePlan(planId);
 	}
 
 }

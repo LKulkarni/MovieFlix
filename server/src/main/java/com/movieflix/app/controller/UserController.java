@@ -2,6 +2,7 @@ package com.movieflix.app.controller;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,6 +15,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.movieflix.app.entity.User;
 import com.movieflix.app.service.UserService;
 
+/**
+ * 
+ * @author Loukik
+ *
+ *         This controller handles all User related requests
+ */
 @RestController
 @RequestMapping(value = "/users", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class UserController {

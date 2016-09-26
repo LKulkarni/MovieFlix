@@ -12,6 +12,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.movieflix.app.entity.Video;
 import com.movieflix.app.service.VideoService;
 
+/**
+ * 
+ * @author Loukik
+ *
+ *         This controller handles all Video related requests
+ */
 @RestController
 @RequestMapping(value = "/videos", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class VideoController {
@@ -35,7 +41,7 @@ public class VideoController {
 		return service.addVideo(video);
 	}
 
-	@RequestMapping(method = RequestMethod.POST, value="/all", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@RequestMapping(method = RequestMethod.POST, value = "/all", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public void addAllVideos(@RequestBody List<Video> videos) {
 
 		service.addAllVideo(videos);

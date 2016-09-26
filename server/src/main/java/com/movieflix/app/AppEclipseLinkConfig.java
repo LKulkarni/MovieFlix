@@ -19,14 +19,21 @@ import org.springframework.orm.jpa.vendor.EclipseLinkJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+/**
+ * 
+ * @author Loukik
+ *
+ *         Class contains eclipselink related configuration
+ */
+
 @Configuration
 @EnableTransactionManagement
 @PropertySource("classpath:mysql.properties")
 public class AppEclipseLinkConfig {
-	
+
 	@Autowired
 	private Environment env;
-	
+
 	@Bean
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 		LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
