@@ -1,0 +1,19 @@
+footer {
+    width: 100%;
+    background: transparent;
+    bottom: 0;
+
+}
+
+footer .wrap {
+    margin: auto;
+    margin-top: 20px;
+    text-align: left;
+    color: white;
+    width:75%;
+    border: none;
+}
+
+footer .table tbody td,footer .table tbody th {
+    border: none;
+}

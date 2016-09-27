@@ -1,0 +1,240 @@
+/* CSS for Navbar*/
+
+ul.topnav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: transparent;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    font-weight: 500;
+}
+
+ul.topnav li {
+    float: left;
+    margin-right: 2px;
+
+}
+
+ul.topnav li.right {
+    float: right;
+}
+
+ul.topnav li#logo img {
+    width: 150px;
+    height: 50px;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+ul.topnav li button.sign {
+    background: #ff4d4d;
+    border-radius: 5px;
+    font-family: Arial, SansSerif;
+    font-weight: 700;
+    color: white;
+    padding: 5px;
+    margin: 10px;
+    text-align: center;
+
+}
+
+ul.topnav li button.sign:hover {
+    box-shadow: inset 0px 0px 0px 36px rgba(163, 10, 10, 1);
+}
+
+ul.topnav li#browse:hover {
+    background: rgb(221, 0, 0);
+}
+
+/*Dropdown menu*/
+
+li#browse {
+    display: inline-block;
+}
+
+li#browse a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-weight: 300;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: rgb(221, 0, 0);
+}
+
+li#browse .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    color: black;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+li#browse .dropdown-content a {
+    color: black;
+    padding: 6px 8px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    font-weight: normal;
+    border-bottom: solid black 0.5px;
+}
+
+ul.topnav li#browse:hover .dropdown-content p {
+    text-align: center;
+    display: block;
+    color: darkblue;
+    width: 100%;
+    padding: 5px;
+    margin: auto;
+}
+
+li#browse .dropdown-content a:hover {
+    color: #3385ff;
+}
+
+li#browse:hover .dropdown-content {
+    display: block;
+    z-index: 1;
+    color: black;
+}
+
+/*Notifications*/
+
+li#notification {
+    display: inline-block;
+}
+
+li#notification a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-weight: 300;
+}
+
+li#notification .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    color: black;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+li#notification .dropdown-content a {
+    color: black;
+    padding: 6px 8px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    font-weight: normal;
+}
+
+li#notification:hover {
+    background-color: #ff6666;
+}
+
+li#notification .dropdown-content a:hover {
+    color: #3385ff;
+}
+
+li#notification:hover .dropdown-content {
+    display: block;
+    z-index: 1;
+    color: black;
+}
+
+li#notification .material-icons {
+    color: white;
+    padding: 0;
+    margin: 0;
+}
+
+.badge {
+    background-color: red;
+}
+
+/* Modal CSS*/
+.modal-header, h4, .close {
+    background-color: #ff6666;
+    color: white !important;
+    text-align: center;
+    font-size: 30px;
+}
+
+.modal-footer {
+    background-color: #f9f9f9;
+}
+
+/*Responsive*/
+@media screen and (max-width: 600px) {
+    ul.topnav li.right,
+    ul.topnav li {
+        border: 1px solid white;
+        float: none;
+        width: 100%
+    }
+
+    ul.topnav li#notification {
+        display: none;
+    }
+
+    ul.topnav li#logo img {
+        margin: 0 25%;
+        display: block;
+        width: 50%;
+    }
+
+    ul.topnav li#browse a {
+        margin: 0 25%;
+        display: block;
+        width: 50%;
+    }
+
+    ul.topnav li#browse:hover .dropdown-content {
+
+        display: block;
+        color: black;
+        width: 80%;
+        margin: 0 10%;
+
+    }
+
+    ul.topnav li#browse:hover .dropdown-content p {
+        text-align: center;
+        display: block;
+        color: darkblue;
+        width: 100%;
+        padding: 5px;
+        margin: auto;
+        text-decoration: underline;
+    }
+
+    ul.topnav li#browse:hover .dropdown-content a {
+        text-align: center;
+    }
+
+    ul.topnav li button.sign {
+        background: #ff4d4d;
+        border-radius: 5px;
+        font-weight: 700;
+        color: white;
+        padding: 5px;
+        width: 50%;
+        margin: 5px 25%;
+        text-align: center;
+    }
+
+}
