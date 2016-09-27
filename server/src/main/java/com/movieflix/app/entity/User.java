@@ -5,7 +5,6 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.UUID;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -34,10 +33,11 @@ public class User {
 	private Date dateOfBirth;
 	private String password;
 	private String role;
+	private String phoneNo;
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date memberSince;
 	private boolean active;
-	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+	@OneToOne
 	private UserPayment userPayment;
 	@ManyToOne(fetch = FetchType.LAZY)
 	private SubscriptionPlan userPlan;
@@ -53,6 +53,7 @@ public class User {
 		this.watched = new ArrayList<Video>();
 		this.favorite = new ArrayList<Video>();
 		this.memberSince = new Date();
+		this.role = "User";
 	}
 
 	public String getId() {
@@ -157,6 +158,14 @@ public class User {
 
 	public void setRole(String role) {
 		this.role = role;
+	}
+
+	public String getPhoneNo() {
+		return phoneNo;
+	}
+
+	public void setPhoneNo(String phoneNo) {
+		this.phoneNo = phoneNo;
 	}
 
 }

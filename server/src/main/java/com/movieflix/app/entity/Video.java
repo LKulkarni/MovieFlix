@@ -1,5 +1,7 @@
 package com.movieflix.app.entity;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -8,6 +10,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -24,19 +27,19 @@ public class Video {
 	private Date released;
 	private String runtime;
 	private String genre;
-	@Column(length=1000)
+	@Column(length = 1000)
 	private String director;
-	@Column(length=3000)
+	@Column(length = 3000)
 	private String writer;
-	@Column(length=3000)
+	@Column(length = 3000)
 	private String actors;
-	@Column(length=10000)
+	@Column(length = 10000)
 	private String plot;
 	private String language;
 	private String country;
-	@Column(length=1000)
+	@Column(length = 1000)
 	private String awards;
-	@Column(length=1000)
+	@Column(length = 1000)
 	private String poster;
 	private Integer metascore;
 	private Float imdbRating;
@@ -44,12 +47,17 @@ public class Video {
 	@Column(unique = true)
 	private String imdbID;
 	private String type;
-	@ManyToMany(mappedBy="watched")
+	@ManyToMany(mappedBy = "watched")
 	private Set<User> viewers;
+	private Float ratings;
+	private Integer raters;
+	@OneToMany
+	private Collection<Comment> comments;
 
 	public Video() {
 		this.Id = "vid" + UUID.randomUUID().toString();
-		this.viewers= new HashSet<User>();
+		this.viewers = new HashSet<User>();
+		this.comments = new ArrayList<Comment>();
 		// this.Genre = new HashSet<>();
 		// this.Actors = new HashSet<>();
 		// this.Language = new HashSet<>();
@@ -216,6 +224,38 @@ public class Video {
 		this.type = type;
 	}
 
+	public Set<User> getViewers() {
+		return viewers;
+	}
+
+	public void setViewers(Set<User> viewers) {
+		this.viewers = viewers;
+	}
+
+	public Float getRatings() {
+		return ratings;
+	}
+
+	public void setRatings(Float ratings) {
+		this.ratings = ratings;
+	}
+
+	public Integer getRaters() {
+		return raters;
+	}
+
+	public void setRaters(Integer raters) {
+		this.raters = raters;
+	}
+
+	public Collection<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(Collection<Comment> comments) {
+		this.comments = comments;
+	}
+
 	@Override
 	public String toString() {
 		return "Video [Id=" + Id + ", title=" + title + ", year=" + year + ", rated=" + rated + ", released=" + released
@@ -225,5 +265,4 @@ public class Video {
 				+ imdbRating + ", imdbVotes=" + imdbVotes + ", imdbID=" + imdbID + ", type=" + type + "]";
 	}
 
-	
 }

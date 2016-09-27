@@ -24,14 +24,14 @@ public class SubscriptionPlanRepositoryImplem implements SubscriptionPlanReposit
 
 	@Override
 	public List<SubscriptionPlan> findAll() {
-		TypedQuery<SubscriptionPlan> query = em.createQuery("SELECT up FROM UserPlan up", SubscriptionPlan.class);
+		TypedQuery<SubscriptionPlan> query = em.createQuery("SELECT sp FROM SubscriptionPlan up", SubscriptionPlan.class);
 		List<SubscriptionPlan> plans = query.getResultList();
 		return plans;
 	}
 
 	@Override
 	public SubscriptionPlan findByName(String planName) {
-		TypedQuery<SubscriptionPlan> query = em.createQuery("SELECT up FROM UserPlan up WHERE up.planName=:pname", SubscriptionPlan.class);
+		TypedQuery<SubscriptionPlan> query = em.createQuery("SELECT up FROM SubscriptionPlan up WHERE up.planName=:pname", SubscriptionPlan.class);
 		query.setParameter("pname", planName);
 		List<SubscriptionPlan> plans = query.getResultList();
 		if (plans.size() == 1) {
@@ -49,7 +49,7 @@ public class SubscriptionPlanRepositoryImplem implements SubscriptionPlanReposit
 	@Override
 	public SubscriptionPlan findPlan(String planId) {
 
-		TypedQuery<SubscriptionPlan> query = em.createQuery("SELECT up FROM UserPlan up WHERE up.planId=:pid", SubscriptionPlan.class);
+		TypedQuery<SubscriptionPlan> query = em.createQuery("SELECT up FROM SubscriptionPlan up WHERE up.planId=:pid", SubscriptionPlan.class);
 		query.setParameter("pid", planId);
 		List<SubscriptionPlan> plans = query.getResultList();
 		if (plans.size() == 1) {
