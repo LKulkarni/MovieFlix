@@ -2,4 +2,10 @@ body {
     margin: 0;
     background: black;
     font-family: Arial, SansSerif;
+    color: white;
+}
+
+section{
+    margin-top: 10px;
+    margin-bottom: 10px;
 }

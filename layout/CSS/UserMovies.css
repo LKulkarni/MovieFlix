@@ -1,0 +1,21 @@
+.thumbnail {
+    max-height: 400px;
+    max-width: 200px;
+    overflow: hidden;
+}
+
+.thumbnail:hover {
+    box-shadow: 0 5px 12px 0 white;
+    animation: zoomtile 0.5s;
+}
+
+@keyframes zoomtile {
+    0% {
+        transform: scale(.90);
+    }
+}
+
+#moviesContainer {
+    width: 80%;
+    margin: auto;
+}

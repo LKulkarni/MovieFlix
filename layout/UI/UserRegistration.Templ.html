@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Registration</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="../CSS/Global.css"/>
+    <link rel="stylesheet" href="../CSS/UserRegistration.css"/>
+    <link rel="stylesheet" href="../CSS/PricingTable.css"/>
+</head>
+<body>
+
+<div class="container-fluid" id="signUpFormContainer">
+    <form id="signUpForm">
+        <fieldset>
+            <legend>Personal Details</legend>
+            <div class="row">
+                <div class="col-md-7"><label for="firstName">First Name</label><input class="form-control" type="text"
+                                                                                      placeholder="Enter First Name here"
+                                                                                      id="firstName"/></div>
+                <div class="col-md-5"><p>Error MSG</p></div>
+            </div>
+            <div class="row">
+                <div class="col-md-7"><label for="lastName">Last Name</label><input class="form-control" type="text"
+                                                                                    placeholder="Enter Last Name here"
+                                                                                    id="lastName"/>
+                </div>
+                <div class="col-md-5"><p>Error MSG</p></div>
+            </div>
+            <div class="row">
+                <div class="col-md-7"><label for="dateOfbirth">DoB</label><input class="form-control" type="text"
+                                                                                 placeholder="Enter Date of Birth here"
+                                                                                 id="dateOfbirth"/>
+                </div>
+                <div class="col-md-5"><p>Error MSG</p></div>
+            </div>
+
+        </fieldset>
+        <fieldset>
+            <legend> Pick your plan</legend>
+
+            <div class="columns">
+                <ul class="price">
+                    <li class="header">Basic</li>
+                    <li class="grey">$ 9.99 / year</li>
+                    <li>10GB Storage</li>
+                    <li>10 Emails</li>
+                    <li>10 Domains</li>
+                    <li>1GB Bandwidth</li>
+                    <li class="grey"><input type="radio" class="form-control" name="plan" value="Basic" selected></li>
+                </ul>
+            </div>
+
+            <div class="columns">
+                <ul class="price">
+                    <li class="header" style="background-color:#4CAF50">Pro</li>
+                    <li class="grey">$ 24.99 / year</li>
+                    <li>25GB Storage</li>
+                    <li>25 Emails</li>
+                    <li>25 Domains</li>
+                    <li>2GB Bandwidth</li>
+                    <li class="grey"><input type="radio" class="form-control" name="plan" value="Pro"></li>
+                </ul>
+            </div>
+
+            <div class="columns">
+                <ul class="price">
+                    <li class="header">Premium</li>
+                    <li class="grey">$ 49.99 / year</li>
+                    <li>50GB Storage</li>
+                    <li>50 Emails</li>
+                    <li>50 Domains</li>
+                    <li>5GB Bandwidth</li>
+                    <li class="grey"><input type="radio" class="form-control" name="plan" value="premium"></li>
+                </ul>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Payment Details</legend>
+        </fieldset>
+        <div class="row">
+            <div class="col-md-7"><label for="nameOnCard">Name on card</label><input class="form-control" type="text"
+                                                                                     placeholder="Enter Name on Card"
+                                                                                     id="nameOnCard"/></div>
+            <div class="col-md-5"><p>Error MSG</p></div>
+        </div>
+        <div class="row">
+            <div class="col-md-7"><label for="cardNumber">Card Number</label><input class="form-control" type="text"
+                                                                                    placeholder="Enter card number"
+                                                                                    id="cardNumber"/>
+            </div>
+            <div class="col-md-5"><p>Error MSG</p></div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"><label for="cvv">CVV</label><input class="form-control" type="text"
+                                                                     placeholder="Enter CVV"
+                                                                     id="CVV"/>
+            </div>
+            <div class="col-md-1"><p>Error MSG</p></div>
+            <div class="col-md-2">MM<select class="form-control">
+                <option>MM</option>
+            </select></div>
+            <div class="col-md-2">YYYY<select class="form-control">
+                <option>YYYY</option>
+            </select>
+            </div>
+            <div class="col-md-1"><p>Error MSG</p></div>
+
+            <div class="col-md-3"><label for="zip">Zip</label><input class="form-control" type="text"
+                                                                     placeholder="Enter Zip"
+                                                                     id="zip"/>
+            </div>
+            <div class="col-md-1"><p>Error MSG</p></div>
+
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
