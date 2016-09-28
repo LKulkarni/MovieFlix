@@ -1,0 +1,30 @@
+<div class="columns title">
+    <ul class="price">
+        <li class="header">Available Plans</li>
+        <li class="header">Cost / month</li>
+        <li>Screens</li>
+        <li>HD Quality</li>
+        <li>Ultra HD</li>
+        <li>PC, Tablets and other devices</li>
+        <li>Cancel Any Time</li>
+        <li>First Month Free</li>
+        <li>
+            <button href="#" class="btn btn-md btn-danger">Sign Up</button>
+        </li>
+    </ul>
+</div>
+<div ng-repeat="plan in ctrl.allPlans" class="columns">
+    <ul class="price">
+        <li class="header">{{plan.planName}}</li>
+        <li class="grey">{{plan.cost}} / month</li>
+        <li>{{plan.screens}}</li>
+        <li>{{plan.hd}}</li>
+        <li>{{plan.ultraHd}}</li>
+        <li>{{plan.allDevices}}</li>
+        <li>{{plan.cancelAnytime}}</li>
+        <li>{{plan.firstMonthFree}}</li>
+        <li>
+            <button href="#" class="btn btn-md btn-danger">Sign Up</button>
+        </li>
+    </ul>
+</div>
