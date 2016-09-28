@@ -35,6 +35,11 @@ public class VideoController {
 		return service.getVideo(videoId);
 	}
 
+	@RequestMapping(method = RequestMethod.GET, value = "/few/{count}")
+	public List<Video> getFewVideos(@PathVariable("count") Integer count) {
+		return service.getFewVideos(count);
+	}
+
 	@RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public Video addVideo(@RequestBody Video video) {
 

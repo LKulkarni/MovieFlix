@@ -18,4 +18,6 @@ public interface VideoService {
 
 	void addAllVideo(List<Video> videos);
 
+	List<Video> getFewVideos(Integer count);
+
 }

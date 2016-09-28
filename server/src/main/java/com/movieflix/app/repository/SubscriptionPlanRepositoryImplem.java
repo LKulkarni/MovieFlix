@@ -24,7 +24,7 @@ public class SubscriptionPlanRepositoryImplem implements SubscriptionPlanReposit
 
 	@Override
 	public List<SubscriptionPlan> findAll() {
-		TypedQuery<SubscriptionPlan> query = em.createQuery("SELECT sp FROM SubscriptionPlan up", SubscriptionPlan.class);
+		TypedQuery<SubscriptionPlan> query = em.createQuery("SELECT up FROM SubscriptionPlan up", SubscriptionPlan.class);
 		List<SubscriptionPlan> plans = query.getResultList();
 		return plans;
 	}
