@@ -2,18 +2,21 @@ footer {
     width: 100%;
     background: transparent;
     bottom: 0;
+    border-top: white 1px solid;
+    margin-top: 20px;
 
 }
 
 footer .wrap {
+
     margin: auto;
-    margin-top: 20px;
     text-align: left;
     color: white;
-    width:75%;
+    width: 75%;
     border: none;
+    margin-top: 20px;
 }
 
-footer .table tbody td,footer .table tbody th {
+footer .table tbody td, footer .table tbody th {
     border: none;
 }
