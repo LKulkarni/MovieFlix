@@ -1,29 +1,31 @@
 /**
- * Created by Loukik on 27-Sep-16.
+ * Created by Loukik on 28-Sep-16.
  */
+
 (function () {
 
 
     angular.module('movieflix')
-        .service('subscriptionService', subscriptionService);
+        .service('userService', userService);
 
 
-    subscriptionService.$inject = ['$http', '$q'];
-    function subscriptionService($http, $q) {
+    userService.$inject = ['$http', '$q'];
+    function userService($http, $q) {
 
         var self = this;
 
-        self.findAll = getPlans;
-        self.findOne = getPlan;
-        self.addNew = addPlan;
-        self.update = updatePlan;
-        self.deleteOne = deletePlan;
+        self.findAll = getUsers;
+        self.findOne = getUser;
+        self.addNew = addUser;
+        self.update = updateUser;
+        self.deleteOne = deleteUser;
+        self.authenticateUser = authenticate;
 
-        function getPlans() {
+        function getUsers() {
             return $http
             ({
                 method: 'GET',
-                url: 'http://localhost:8080/RestAPI/app/userplans'
+                url: 'http://localhost:8080/RestAPI/app/users'
             })
                 .then(function (response) {
                     return response.data;
@@ -32,11 +34,13 @@
                 });
         }
 
-        function getPlan(id) {
+
+        function authenticate(username, password) {
             return $http
             ({
                 method: 'GET',
-                url: 'http://localhost:8080/RestAPI/app/userplans/' + id
+                url: 'http://localhost:8080/RestAPI/app/users/authenticate',
+                params: {email: username, pass: password}
             })
                 .then(function (response) {
                     return response.data;
@@ -45,12 +49,25 @@
                 });
         }
 
-        function addPlan(plan) {
+        function getUser(id) {
+            return $http
+            ({
+                method: 'GET',
+                url: 'http://localhost:8080/RestAPI/app/users/' + id
+            })
+                .then(function (response) {
+                    return response.data;
+                }, function (error) {
+                    return $q.reject(error);
+                });
+        }
+
+        function addUser(user) {
             return $http
             ({
                 method: 'POST',
-                url: 'http://localhost:8080/RestAPI/app/userplans',
-                data: plan
+                url: 'http://localhost:8080/RestAPI/app/users',
+                data: user
             })
                 .then(function (response) {
                     return response.data;
@@ -59,12 +76,12 @@
                 });
         }
 
-        function updatePlan(id, plan) {
+        function updateUser(id, user) {
             return $http
             ({
                 method: 'UPDATE',
-                url: 'http://localhost:8080/RestAPI/app/userplans/' + id,
-                data: plan
+                url: 'http://localhost:8080/RestAPI/app/users/' + id,
+                data: user
             })
                 .then(function (response) {
                     return response.data;
@@ -73,11 +90,11 @@
                 });
         }
 
-        function deletePlan(id) {
+        function deleteUser(id) {
             return $http
             ({
                 method: 'DELETE',
-                url: 'http://localhost:8080/RestAPI/app/userplans/' + id
+                url: 'http://localhost:8080/RestAPI/app/users/' + id
             })
                 .then(function (response) {
                     return response.data;
@@ -86,7 +103,7 @@
                 });
         }
 
-    }//end of subscriptionService
+    }//end of userService
 
 
 })();

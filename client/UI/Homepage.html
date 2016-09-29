@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="app">
+<html lang="en" ng-app="movieflix">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movieflix-Homepage</title>
+    <title>Movieflix</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
@@ -12,11 +12,11 @@
     <link rel="stylesheet" href="../CSS/Global.css"/>
     <link rel="stylesheet" href="../CSS/Menubar.css"/>
     <link rel="stylesheet" href="../CSS/Homepage.css"/>
-    <link rel="stylesheet" href="../CSS/Global.css"/>
     <link rel="stylesheet" href="../CSS/Footer.css"/>
     <link rel="stylesheet" href="../CSS/PricingTable.css"/>
+    <link rel="stylesheet" href="../CSS/UserRegistration.css"/>
+    <link rel="stylesheet" href="../CSS/UserMovies.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
     <script
             src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../JavaScript/Menubar.js"></script>
@@ -93,80 +93,7 @@
 </div> <!-- end of modal container-->
 <!--end of navbar-->
 <!--body-->
-<section ng-controller="controller1 as ctrl">
-    <div class="jumbotron">
-        <div id="jumbotron-contents" class="container">
-            <h2>See whats new!!!</h2>
-            <p><a id="latestLink">Narcos Season 2 Available Now</a></p>
-            <p><a class="btn btn-danger btn-lg" href="#" role="button">Sign Up Now!</a></p>
-        </div>
-    </div>
-    <div id="jumbotron-contents-micro" class="container-fluid">
-        <h2>See whats new!!!</h2>
-        <p><a id="latestLink-micro">Narcos Season 2 Available Now</a></p>
-        <p><a class="btn btn-danger btn-lg" href="#" role="button">Sign Up Now!</a></p>
-    </div>
-    <!--end of jumbotron-->
-    <div id="navtabs" class="container-fluid">
-        <ul class="nav nav-pills nav-justified">
-            <li role="presentation" class="active"><a href="#originals" data-toggle="tab"><p><i
-                    class="material-icons">movie</i>
-                Originals</p></a></li>
-            <li role="presentation"><a href="#watchanywhere" data-toggle="tab"><p><i class="material-icons">devices</i>Devices
-            </p></a></li>
-            <li role="presentation"><a href="#pickyourprice" data-toggle="tab"><p><i class="material-icons">redeem</i>
-                Plans</p></a></li>
-        </ul>
-
-        <div id="navtab-content" class="tab-content clearfix">
-            <div class="tab-pane active" id="originals">
-                <div class="row">
-                    <div class="col-lg-12"><img class="poster" src="../Resources/mainposter.jpg"/></div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4"><img class="poster" ng-src="{{ctrl.allVideos[0].poster}}"/></div>
-                    <div class="col-lg-4"><img class="poster" ng-src="{{ctrl.allVideos[1].poster}}"/></div>
-                    <div class="col-lg-4"><img class="poster" ng-src="{{ctrl.allVideos[2].poster}}"/></div
-                </div>
-
-            </div>
-            <div class="tab-pane" id="watchanywhere">
-                <div class="row">
-                    <div class="col-sm-12 col-md-4">
-                        <div class="thumbnail">
-                            <img src="../Resources/movieflix-tv.jpg" alt="TV">
-                            <div class="caption">
-                                <h3>Watch on your TV</h3>
-                                <p>Smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-md-4">
-                        <div class="thumbnail">
-                            <img src="../Resources/movieflix-mobile.jpg" alt="Mobile">
-                            <div class="caption">
-                                <h3>Watch on the go</h3>
-                                <p>iPhone, iPad, Android phones and tablets, Windows phones and tablets.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-md-4">
-                        <div class="thumbnail">
-                            <img src="../Resources/movieflix-pc.jpg" alt="PC">
-                            <div class="caption">
-                                <h3>Use any computer</h3>
-                                <p>Watch right on Netflix.com.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tab-pane" id="pickyourprice" ng-include="'../UI/tab3.html'">
-            </div>
-        </div>
-
-    </div>
+<section ng-view>
 
 
 </section>
@@ -210,10 +137,13 @@
 
 <script src="../AngularJS/angular.js"></script>
 <script src="../AngularJS/angular-messages.js"></script>
-<script src="../AngularJS/app.module.js"></script>
-<script src="../AngularJS/controller.js"></script>
+<script src="../AngularJS/angular-route.js"></script>
+<script src="../AngularJS/movieflix.module.js"></script>
+<script src="../AngularJS/home.controller.js"></script>
+<script src="../AngularJS/user_registration.controller.js"></script>
 <script src="../AngularJS/subscriptionPlan.service.js"></script>
 <script src="../AngularJS/videos.service.js"></script>
+<script src="../AngularJS/user.service.js"></script>
 
 </body>
 

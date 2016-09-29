@@ -4,12 +4,12 @@
 (function () {
 
 
-    angular.module('app')
-        .controller('controller1', controller1);
+    angular.module('movieflix')
+        .controller('homeController', homeController);
 
-    controller1.$inject = ['subscriptionService', 'videoService'];
+    homeController.$inject = ['subscriptionService', 'videoService'];
 
-    function controller1(subscriptionService, videoService) {
+    function homeController(subscriptionService, videoService) {
         var dataVm = this;
 
         init();
@@ -24,11 +24,9 @@
                 });
 
 
-            videoService.findAll()
+            videoService.findFew(3)
                 .then(function (data) {
-                    var videos = data.slice(1, 5);
-                    var index = Math.floor(Math.random() * videos.length);
-                    dataVm.allVideos = videos.slice(index, index + 3);
+                     dataVm.allVideos = data;
                     console.dir(dataVm.allVideos);
                 }, function (error) {
                     console.log(error);

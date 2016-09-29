@@ -4,7 +4,7 @@
 (function () {
 
 
-    angular.module('app')
+    angular.module('movieflix')
         .service('videoService', videoService);
 
 
@@ -14,6 +14,7 @@
         var self = this;
 
         self.findAll = getVideos;
+        self.findFew = getFewVideos;
         self.findOne = getVideo;
         self.addNew = addVideo;
         self.update = updateVideo;
@@ -32,23 +33,75 @@
                 });
         }
 
-        function getVideo() {
 
+        function getFewVideos(count) {
+            return $http
+            ({
+                method: 'GET',
+                url: 'http://localhost:8080/RestAPI/app/videos/few/' + count
+            })
+                .then(function (response) {
+                    return response.data;
+                }, function (error) {
+                    return $q.reject(error);
+                });
         }
 
-        function addVideo() {
-
+        function getVideo(id) {
+            return $http
+            ({
+                method: 'GET',
+                url: 'http://localhost:8080/RestAPI/app/videos/' + id
+            })
+                .then(function (response) {
+                    return response.data;
+                }, function (error) {
+                    return $q.reject(error);
+                });
         }
 
-        function updateVideo() {
-
+        function addVideo(video) {
+            return $http
+            ({
+                method: 'POST',
+                url: 'http://localhost:8080/RestAPI/app/videos',
+                data: video
+            })
+                .then(function (response) {
+                    return response.data;
+                }, function (error) {
+                    return $q.reject(error);
+                });
         }
 
-        function deleteVideo() {
-
+        function updateVideo(id, video) {
+            return $http
+            ({
+                method: 'UPDATE',
+                url: 'http://localhost:8080/RestAPI/app/videos/' + id,
+                data: video
+            })
+                .then(function (response) {
+                    return response.data;
+                }, function (error) {
+                    return $q.reject(error);
+                });
         }
 
-    }//end of subscriptionService
+        function deleteVideo(id) {
+            return $http
+            ({
+                method: 'DELETE',
+                url: 'http://localhost:8080/RestAPI/app/videos/' + id
+            })
+                .then(function (response) {
+                    return response.data;
+                }, function (error) {
+                    return $q.reject(error);
+                });
+        }
+
+    }//end of videoService
 
 
 })();

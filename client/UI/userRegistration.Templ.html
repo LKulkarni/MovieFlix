@@ -1,0 +1,106 @@
+<div class="container-fluid" id="signUpFormContainer">
+    <form id="signUpForm" ng-submit="regCtrl.createUser()" role="form" novalidate>
+        <fieldset>
+            <legend>
+                <h2>Personal Details</h2>
+            </legend>
+
+            <div class="row">
+                <div class="col-md-7"><label for="email">Email</label>
+                    <input class="form-control" type="text" placeholder="Enter email(username) here" id="email"
+                           ng-model="regCtrl.user.email"/></div>
+                <div class="col-md-5"><p>Error MSG</p></div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-7"><label for="password">Password</label>
+                    <input class="form-control" type="password" placeholder="Enter First Name here" id="password"
+                           ng-model="regCtrl.user.password"/></div>
+                <div class="col-md-5"><p>Error MSG</p></div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-7"><label for="firstName">First Name</label>
+                    <input class="form-control" type="text" placeholder="Enter First Name here" id="firstName"
+                           ng-model="regCtrl.user.firstName"/></div>
+                <div class="col-md-5"><p>Error MSG</p></div>
+            </div>
+            <div class="row">
+                <div class="col-md-7"><label for="lastName">Last Name</label>
+                    <input class="form-control" type="text" placeholder="Enter Last Name here" id="lastName"
+                           ng-model="regCtrl.user.lastName"/>
+                </div>
+                <div class="col-md-5"><p>Error MSG</p></div>
+            </div>
+            <div class="row">
+                <div class="col-md-7"><label for="phoneNo">Phone No</label>
+                    <input class="form-control" type="text" placeholder="Enter Phone no here" id="phoneNo"
+                           ng-model="regCtrl.user.phoneNo"/>
+                </div>
+                <div class="col-md-5"><p>Error MSG</p></div>
+            </div>
+            <div class="row">
+                <div class="col-md-7"><label for="dateOfbirth">DoB</label>
+                    <input class="form-control" type="date" placeholder="Enter Date of Birth here" id="dateOfbirth"
+                           ng-model="regCtrl.user.dateOfBirth"/>
+                </div>
+                <div class="col-md-5"><p>Error MSG</p></div>
+            </div>
+
+        </fieldset>
+        <fieldset>
+            <legend><h2>Pick your plan</h2></legend>
+            <div ng-include="'../UI/userRegistration_Plans.Templ.html'">
+            </div>
+
+        </fieldset>
+        <fieldset>
+            <legend><h2>Payment Details</h2></legend>
+        </fieldset>
+        <div class="row">
+            <div class="col-md-7"><label for="nameOnCard">Name on card</label>
+                <input class="form-control" type="text" placeholder="Enter Name on Card" id="nameOnCard"
+                       ng-model="regCtrl.user.userPayment.nameOnCard"/>
+            </div>
+            <div class="col-md-5"><p>Error MSG</p></div>
+        </div>
+        <div class="row">
+            <div class="col-md-7"><label for="cardNumber">Card Number</label>
+                <input class="form-control" type="text" placeholder="Enter card number" id="cardNumber"
+                       ng-model="regCtrl.user.userPayment.cardNumber"/>
+            </div>
+            <div class="col-md-5"><p>Error MSG</p></div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"><label for="cvv">CVV</label>
+                <input class="form-control" type="text" placeholder="Enter CVV" id="CVV"
+                       ng-model="regCtrl.user.userPayment.cvv"/>
+            </div>
+            <div class="col-md-1"><p>Error MSG</p></div>
+            <div class="col-md-2">MM<select class="form-control">
+                <option>MM</option>
+            </select></div>
+            <div class="col-md-2">YYYY<select class="form-control">
+                <option>YYYY</option>
+            </select>
+            </div>
+            <div class="col-md-1"><p>Error MSG</p></div>
+
+            <div class="col-md-3"><label for="zip">Zip</label>
+                <input class="form-control" type="text" placeholder="Enter Zip" id="zip"
+                       ng-model="regCtrl.user.userPayment.zip"/>
+            </div>
+            <div class="col-md-1"><p>Error MSG</p></div>
+
+        </div>
+        <div class="row" style="margin-top:30px ">
+            <div class="col-md-offset-3 col-md-2" >
+                <button class="btn btn-danger" type="submit">Register</button>
+            </div>
+            <div class="col-md-2">
+                <button class=" btn btn-md btn-default" type="Reset">Cancel</button>
+            </div>
+        </div>
+    </form>
+</div>
+

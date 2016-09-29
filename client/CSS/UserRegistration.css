@@ -18,3 +18,8 @@ input[type="radio"]
 fieldset
 {margin-top: 15px;}
 
+#signUpFormContainer
+{
+    width:80%;
+    margin:auto;
+}
