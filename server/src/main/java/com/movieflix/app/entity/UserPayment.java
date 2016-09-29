@@ -24,6 +24,7 @@ public class UserPayment {
 	@Temporal(TemporalType.DATE)
 	private Date expiryDate;
 	private int cvv;
+	private String zip;
 
 	public String getId() {
 		return id;
@@ -63,6 +64,14 @@ public class UserPayment {
 
 	public void setCvv(int cvv) {
 		this.cvv = cvv;
+	}
+
+	public String getZip() {
+		return zip;
+	}
+
+	public void setZip(String zip) {
+		this.zip = zip;
 	}
 
 }
