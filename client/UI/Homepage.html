@@ -50,7 +50,7 @@
 
     </ul>
 </header>
-<div class="container">
+<div class="container" ng-controller="homeController as ctrl">
     <!-- Modal -->
     <div class="modal fade" id="loginModal" role="dialog">
         <div class="modal-dialog">
@@ -62,14 +62,16 @@
                     <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
                 </div>
                 <div class="modal-body" style="padding:40px 50px;">
-                    <form role="form">
+                    <form role="form" ng-submit="ctrl.login()">
                         <div class="form-group">
                             <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
-                            <input type="text" class="form-control" id="usrname" placeholder="Enter email">
+                            <input type="text" ng-model="ctrl.username" class="form-control" id="usrname"
+                                   placeholder="Enter email">
                         </div>
                         <div class="form-group">
                             <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
-                            <input type="text" class="form-control" id="psw" placeholder="Enter password">
+                            <input type="text" ng-model="ctrl.password" class="form-control" id="psw"
+                                   placeholder="Enter password">
                         </div>
                         <div class="checkbox">
                             <label><input type="checkbox" value="" checked>Remember me</label>
@@ -83,7 +85,7 @@
                     <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span
                             class="glyphicon glyphicon-remove"></span> Cancel
                     </button>
-                    <p>Not a member? <a href="#">Sign Up</a></p>
+                    <p>Not a member? <a href="#/register">Sign Up</a></p>
                     <p>Forgot <a href="#">Password?</a></p>
                 </div>
             </div>
@@ -138,12 +140,15 @@
 <script src="../AngularJS/angular.js"></script>
 <script src="../AngularJS/angular-messages.js"></script>
 <script src="../AngularJS/angular-route.js"></script>
+<script src="../AngularJS/angular-cookies.js"></script>
 <script src="../AngularJS/movieflix.module.js"></script>
 <script src="../AngularJS/home.controller.js"></script>
 <script src="../AngularJS/user_registration.controller.js"></script>
+<script src="../AngularJS/user_home.controller.js"></script>
 <script src="../AngularJS/subscriptionPlan.service.js"></script>
 <script src="../AngularJS/videos.service.js"></script>
 <script src="../AngularJS/user.service.js"></script>
+<script src="../AngularJS/authentication.factory.js"></script>
 
 </body>
 

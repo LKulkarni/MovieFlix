@@ -4,7 +4,7 @@
 (function () {
 
 
-    angular.module('movieflix', ['ngMessages', 'ngRoute'])
+    angular.module('movieflix', ['ngMessages', 'ngRoute','ngCookies'])
         .config(moduleConfig)
         .run(moduleRun);
 
@@ -12,7 +12,8 @@
         console.log('Movieflix started');
     }
 
-    function moduleConfig($routeProvider) {
+    moduleConfig.$inject=['$routeProvider','$locationProvider'];
+    function moduleConfig($routeProvider,$locationProvider) {
         $routeProvider
             .when('/',
                 {
@@ -28,7 +29,7 @@
                     controllerAs: 'regCtrl'
                 }
             )
-            .when('/login',
+            .when('/userhome',
                 {
                     templateUrl:'../UI/userMovies.Templ.html',
                     controller: 'user_homeController',
