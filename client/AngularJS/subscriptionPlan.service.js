@@ -62,7 +62,7 @@
         function updatePlan(id, plan) {
             return $http
             ({
-                method: 'UPDATE',
+                method: 'PUT',
                 url: 'http://localhost:8080/RestAPI/app/userplans/' + id,
                 data: plan
             })

@@ -167,7 +167,7 @@ li#notification .material-icons {
 }
 
 /* Modal CSS*/
-.modal-header, h4, .close {
+.modal-header, .close {
     background-color: #ff6666;
     color: white !important;
     text-align: center;

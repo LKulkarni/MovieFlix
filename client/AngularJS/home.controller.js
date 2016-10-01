@@ -7,12 +7,11 @@
     angular.module('movieflix')
         .controller('homeController', homeController);
 
-    homeController.$inject = ['subscriptionService', 'videoService', 'authFactory', '$location'];
+    homeController.$inject = ['subscriptionService', 'videoService'];
 
-    function homeController(subscriptionService, videoService, authFactory, $location) {
+    function homeController(subscriptionService, videoService) {
         var dataVm = this;
 
-        dataVm.login = login;
 
         init();
 
@@ -34,29 +33,10 @@
                     console.log(error);
                 });
 
-            authFactory.clearCredentials();
 
         }
 
-        function login() {
-            authFactory.login(dataVm.username, dataVm.password, function (response) {
-                if (response.active && response.role == "User") {
-                    authFactory.setCredentials(dataVm.username, dataVm.password);
-                    $location.path('/userhome');
-                    console.log("reached");
-                }
-                else if (response.active && response.role == "Admin") {
-                    $location.path('/register');
-                }
 
-                else {
-                    console.dir("reached2" + response);
-                    $location.path('/');
-
-                }
-            });
-
-        }
     }
 
 })();

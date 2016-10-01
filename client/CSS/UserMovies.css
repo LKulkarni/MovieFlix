@@ -1,6 +1,15 @@
+#userMoviesContainer {
+    width: 80%;
+    margin: auto;
+}
+
+#searchContainer {
+    margin-bottom: 20px;
+}
+
 .thumbnail {
-    max-height: 400px;
-    max-width: 200px;
+    height: 450px;
+    max-height: 450px;
     overflow: hidden;
 }
 
@@ -15,7 +24,27 @@
     }
 }
 
-#moviesContainer {
-    width: 80%;
-    margin: auto;
+#moviesContainer .thumbnail img {
+
+    height: 200px;
+    width: auto;
+    max-height: 200px;
+    max-width: 200px;
+}
+
+#moviesContainer .thumbnail .caption h4 {
+    display: inline;
+    color: #3073dd;
+}
+
+#moviesContainer .thumbnail .caption h4.title {
+    color: gold;
+    width: 100%;
+    text-align: center;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+select.form-control {
+    width: auto;
 }

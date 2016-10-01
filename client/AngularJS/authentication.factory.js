@@ -26,10 +26,12 @@
         }
 
         //set up cookies
-        function setCredentials(username, password) {
+        function setCredentials(username, password, firstname,lastname) {
             var authdata = Base64.encode(username + ':' + password);
             $rootScope.globals = {
                 currentUser: {
+                    firstname: firstname,
+                    lastname: lastname,
                     username: username,
                     authdata: authdata
                 }

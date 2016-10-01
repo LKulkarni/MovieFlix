@@ -77,7 +77,7 @@
         function updateVideo(id, video) {
             return $http
             ({
-                method: 'UPDATE',
+                method: 'PUT',
                 url: 'http://localhost:8080/RestAPI/app/videos/' + id,
                 data: video
             })

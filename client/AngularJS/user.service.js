@@ -38,7 +38,7 @@
         function authenticate(username, password) {
             return $http
             ({
-                method: 'GET',
+                method: 'POST',
                 url: 'http://localhost:8080/RestAPI/app/users/authenticate',
                 params: {email: username, pass: password}
             })
@@ -79,7 +79,7 @@
         function updateUser(id, user) {
             return $http
             ({
-                method: 'UPDATE',
+                method: 'PUT',
                 url: 'http://localhost:8080/RestAPI/app/users/' + id,
                 data: user
             })
