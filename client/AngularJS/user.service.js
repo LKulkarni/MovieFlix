@@ -25,6 +25,7 @@
             return $http
             ({
                 method: 'GET',
+                cache:false,
                 url: 'http://localhost:8080/RestAPI/app/users'
             })
                 .then(function (response) {
@@ -39,6 +40,7 @@
             return $http
             ({
                 method: 'POST',
+                cache:false,
                 url: 'http://localhost:8080/RestAPI/app/users/authenticate',
                 params: {email: username, pass: password}
             })
@@ -53,6 +55,7 @@
             return $http
             ({
                 method: 'GET',
+                cache:false,
                 url: 'http://localhost:8080/RestAPI/app/users/' + id
             })
                 .then(function (response) {

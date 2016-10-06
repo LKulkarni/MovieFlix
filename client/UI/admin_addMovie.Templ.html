@@ -1,0 +1,132 @@
+<div class="container-fluid">
+    <form id="movieForm" ng-submit="adminHomeCtrl.addVideo()">
+        <div class="row">
+            <div class="col-md-2"><label for="title"></label></div>
+            <div class="col-md-5"><input class="form-control" type="text" id="title" placeholder="Enter Title" ng-model="adminHomeCtrl.newVideo.title"/></div>
+            <div class="col-md-3"><span>Error!!</span></div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"><label for="year"></label></div>
+            <div class="col-md-5">
+                <select id="year" class="form-control" ng-model="adminHomeCtrl.newVideo.year">
+                    <option style="color: #111111" ng-repeat="y in adminHomeCtrl.years" value="{{y}}">{{y}}</option>
+                </select></div>
+            <div class="col-md-3"><span>Error!!</span></div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"><label for="rated"></label></div>
+            <div class="col-md-5">
+                <select id="rated" class="form-control" ng-model="adminHomeCtrl.newVideo.rated">
+                <option style="color: #111111" ng-repeat="fr in adminHomeCtrl.filmRatings" value="{{fr}}">{{fr}}
+                </option>
+            </select></div>
+            <div class="col-md-3"><span>Error!!</span></div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"><label for="released"></label></div>
+            <div class="col-md-5"><input class="form-control" placeholder="Enter release date dd-MM-yyyy" type="date" id="released" ng-model="adminHomeCtrl.newVideo.released"/></div>
+            <div class="col-md-3"><span>Error!!</span></div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"><label for="runtime"></label></div>
+            <div class="col-md-5"><input class="form-control" placeholder="Enter runtime" type="text" id="runtime" ng-model="adminHomeCtrl.newVideo.runtime"/></div>
+            <div class="col-md-3"><span>Error!!</span></div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"><label for="genre"></label></div>
+            <div class="col-md-5"><select id="genre" class="form-control" ng-model="adminHomeCtrl.newVideo.genre" multiple>
+                <option style="color: #111111" ng-repeat="gen in adminHomeCtrl.genres" value="{{gen}}">{{gen}}</option>
+            </select></div>
+            <div class="col-md-3"><span>Error!!</span></div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"><label for="directors"></label></div>
+            <div class="col-md-5"><input class="form-control" type="text" id="directors" placeholder="Enter Director Name here" ng-model="adminHomeCtrl.newVideo.director"/></div>
+            <div class="col-md-3"><span>Error!!</span></div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"><label for="writer"></label></div>
+            <div class="col-md-5"><input class="form-control" type="text" id="writer" placeholder="Enter Writer Name here" ng-model="adminHomeCtrl.newVideo.writer"/></div>
+            <div class="col-md-3"><span>Error!!</span></div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"><label for="actors"></label></div>
+            <div class="col-md-5"><input class="form-control" type="text" id="actors" placeholder="Enter Actor Name here" ng-model="adminHomeCtrl.newVideo.actors"/></div>
+            <div class="col-md-3"><span>Error!!</span></div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"><label for="plot"></label></div>
+            <div class="col-md-5"><textarea class="form-control" type="text" id="plot" placeholder="Enter Plot here" ng-model="adminHomeCtrl.newVideo.plot"/></div>
+            <div class="col-md-3"><span>Error!!</span></div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"><label for="language"></label></div>
+            <div class="col-md-5"><select id="language" class="form-control" ng-model="adminHomeCtrl.newVideo.language">
+                <option style="color: #111111" ng-repeat="lang in adminHomeCtrl.langs" value="{{lang}}">{{lang}}
+                </option>
+            </select></div>
+            <div class="col-md-3"><span>Error!!</span></div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"><label for="country"></label></div>
+            <div class="col-md-5"><select id="country" class="form-control" ng-model="adminHomeCtrl.newVideo.country">
+                <option style="color: #111111" ng-repeat="ct in adminHomeCtrl.countries" value="{{ct}}">{{ct}}
+                </option>
+            </select></div>
+            <div class="col-md-3"><span>Error!!</span></div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"><label for="awards"></label></div>
+            <div class="col-md-5"><input class="form-control" type="text" id="awards" placeholder="Enter Awards here" ng-model="adminHomeCtrl.newVideo.awards"/></div>
+            <div class="col-md-3"><span>Error!!</span></div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"><label for="poster"></label></div>
+            <div class="col-md-5"><input class="form-control" type="text" id="poster" placeholder="Enter Link to poster here" ng-model="adminHomeCtrl.newVideo.poster"/></div>
+            <div class="col-md-3"><span>Error!!</span></div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"><label for="metascore"></label></div>
+            <div class="col-md-5"><input class="form-control" type="number" id="metascore" placeholder="Enter metascore here" min="0" ng-model="adminHomeCtrl.newVideo.metascore"/></div>
+            <div class="col-md-3"><span>Error!!</span></div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"><label for="imdbRatings"></label></div>
+            <div class="col-md-5"><input class="form-control" type="text" id="imdbRatings" placeholder="Enter imdbRatings here" ng-model="adminHomeCtrl.newVideo.imdbRating"/></div>
+            <div class="col-md-3"><span>Error!!</span></div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"><label for="imdbVotes"></label></div>
+            <div class="col-md-5"><input class="form-control" type="number" id="imdbVotes" placeholder="Enter imdbVotes here" min="0" ng-model="adminHomeCtrl.newVideo.imdbVotes"/></div>
+            <div class="col-md-3"><span>Error!!</span></div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"><label for="imdbId"></label></div>
+            <div class="col-md-5"><input class="form-control" type="text" id="imdbId" placeholder="Enter imdbId here" ng-model="adminHomeCtrl.newVideo.imdbID"/></div>
+            <div class="col-md-3"><span>Error!!</span></div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"><label for="type"></label></div>
+            <div class="col-md-5"><select id="type" class="form-control" ng-model="adminHomeCtrl.newVideo.type">
+                <option style="color: #111111" ng-repeat="type in adminHomeCtrl.types" value="{{type}}">{{type}}
+                </option>
+            </select></div>
+            <div class="col-md-3"><span>Error!!</span></div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"><label for="ratings"></label></div>
+            <div class="col-md-5"><input class="form-control" type="text" id="ratings" placeholder="Enter ratings here" ng-model="adminHomeCtrl.newVideo.ratings"/></div>
+            <div class="col-md-3"><span>Error!!</span></div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"><label for="raters"></label></div>
+            <div class="col-md-5"><input class="form-control" type="number" id="raters" placeholder="Enter raters here" min="0" ng-model="adminHomeCtrl.newVideo.raters"/></div>
+            <div class="col-md-3"><span>Error!!</span></div>
+        </div>
+        <div class="row">
+            <div class="col-md-offset-2 col-md-3"><button class="btn btn-md btn-success" type="submit" id="submitbtn">Add</button></div>
+            <div class="col-md-3"><button class="btn btn-md btn-default" type="reset" id="resetbtn">Reset</button></div>
+        </div>
+
+    </form>
+</div>

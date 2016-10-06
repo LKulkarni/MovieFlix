@@ -24,6 +24,7 @@
             return $http
             ({
                 method: 'GET',
+                cache:false,
                 url: 'http://localhost:8080/RestAPI/app/videos'
             })
                 .then(function (response) {
@@ -38,6 +39,7 @@
             return $http
             ({
                 method: 'GET',
+                cache:false,
                 url: 'http://localhost:8080/RestAPI/app/videos/few/' + count
             })
                 .then(function (response) {
@@ -51,6 +53,7 @@
             return $http
             ({
                 method: 'GET',
+                cache:false,
                 url: 'http://localhost:8080/RestAPI/app/videos/' + id
             })
                 .then(function (response) {
