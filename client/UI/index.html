@@ -20,7 +20,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script
             src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="../JavaScript/user_Home.js"></script>
+
     <script src="../JavaScript/Menubar.js"></script>
 
 </head>
@@ -73,7 +73,8 @@
                             <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
                             <input type="text" ng-model="lc.username" class="form-control" name="Username" id="usrname"
                                    placeholder="Enter email" required>
-                            <div class="error" ng-messages="loginForm.Username.$error" ng-if="loginForm.Username.$dirty">
+                            <div class="error" ng-messages="loginForm.Username.$error"
+                                 ng-if="loginForm.Username.$dirty">
                                 <p ng-message="required">Email/Username Required</p>
                             </div>
                         </div>
@@ -81,12 +82,13 @@
                             <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
                             <input type="text" ng-model="lc.password" class="form-control" name="Password" id="psw"
                                    placeholder="Enter password" required>
-                            <div class="error" ng-messages="loginForm.Password.$error" ng-if="loginForm.Password.$dirty">
+                            <div class="error" ng-messages="loginForm.Password.$error"
+                                 ng-if="loginForm.Password.$dirty">
                                 <p ng-message="required">Password Required</p>
                             </div>
                         </div>
                         <div class="checkbox">
-                            <label style="color:black"><input type="checkbox"  value="" checked>Remember me</label>
+                            <label style="color:black"><input type="checkbox" value="" checked>Remember me</label>
                         </div>
                         <button id="loginSubmit" type="submit" class="btn btn-primary btn-block"><span
                                 class="glyphicon glyphicon-off" data-dismiss="modal"></span> Login

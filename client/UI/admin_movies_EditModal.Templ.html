@@ -1,0 +1,257 @@
+<!-- Modal content-->
+<div class="modal-content" style="color: black">
+    <div class="modal-header" style="padding:35px 50px;">
+        <img style="width:150px;height: 200px;float: left;" ng-src="{{adminHomeCtrl.currentVideo.poster}}"/>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h2>Update form: {{adminHomeCtrl.currentVideo.title}}</h2>
+
+    </div>
+    <div class="modal-body" style=" width:80%; margin: auto; padding:40px 50px;">
+        <form id="editMovieForm" name="editMovieForm" ng-submit="adminHomeCtrl.updateVideo()" novalidate>
+            <div class="row">
+                <div class="col-md-2"><label for="title">Title</label></div>
+                <div class="col-md-5"><input class="form-control" type="text" id="title" name="title"
+                                             placeholder="Enter Title" ng-model="adminHomeCtrl.currentVideo.title"
+                                             required/></div>
+                <div class="col-md-3 error" ng-messages="editMovieForm.title.$error" ng-if="editMovieForm.title.$dirty">
+                    <p ng-message="required">Video Title Required</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2"><label for="year">Year</label></div>
+                <div class="col-md-5">
+                    <select id="year" name="year" class="form-control" ng-model="adminHomeCtrl.currentVideo.year"
+                            required>
+                        <option style="color: #111111" ng-repeat="y in adminHomeCtrl.years" value="{{y}}">{{y}}</option>
+                    </select>
+                </div>
+                <div class="col-md-3 error" ng-messages="editMovieForm.year.$error" ng-if="editMovieForm.year.$dirty">
+                    <p ng-message="required">Year Required</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2"><label for="rated">Film Rating</label></div>
+                <div class="col-md-5">
+                    <select id="rated" name="rated" class="form-control" ng-model="adminHomeCtrl.currentVideo.rated"
+                            required>
+                        <option style="color: #111111" ng-repeat="fr in adminHomeCtrl.filmRatings" value="{{fr}}">{{fr}}
+                        </option>
+                    </select>
+                </div>
+                <div class="col-md-3 error" ng-messages="editMovieForm.rated.$error" ng-if="editMovieForm.rated.$dirty">
+                    <p ng-message="required">File Rating Required</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2"><label for="released">Date of Release</label></div>
+                <div class="col-md-5"><input name="released" class="form-control"
+                                             placeholder="Enter release date dd-MM-yyyy" type="date" id="released"
+                                             ng-model="adminHomeCtrl.currentVideo.released"
+                                             value="{{adminHomeCtrl.currentVideo.released | date:'dd-MM-yyyy'}}"
+                                             required/></div>
+                <div class="col-md-3 error" ng-messages="editMovieForm.released.$error"
+                     ng-if="editMovieForm.released.$dirty">
+                    <p ng-message="required">Date of Release Required</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2"><label for="runtime">Runtime</label></div>
+                <div class="col-md-5"><input class="form-control" name="runtime" placeholder="Enter runtime" type="text"
+                                             id="runtime" ng-model="adminHomeCtrl.currentVideo.runtime" required/></div>
+                <div class="col-md-3 error" ng-messages="editMovieForm.runtime.$error"
+                     ng-if="editMovieForm.runtime.$dirty">
+                    <p ng-message="required">Runtime Required</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2"><label for="genre">Genre</label></div>
+                <div class="col-md-5">
+                    <select name="genre" id="genre" class="form-control"
+                            ng-model="adminHomeCtrl.currentVideo.genre" multiple required>
+                        <option style="color: #111111" ng-repeat="gen in adminHomeCtrl.genres" value="{{gen}}">{{gen}}
+                        </option>
+                    </select></div>
+                <div class="col-md-3 error" ng-messages="editMovieForm.genre.$error" ng-if="editMovieForm.genre.$dirty">
+                    <p ng-message="required">Atleast one Genre required</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2"><label for="directors">Director(s)</label></div>
+                <div class="col-md-5"><input class="form-control" type="text" name="directors" id="directors"
+                                             placeholder="Enter Director Name here"
+                                             ng-model="adminHomeCtrl.currentVideo.director" required/></div>
+                <div class="col-md-3 error" ng-messages="editMovieForm.directors.$error"
+                     ng-if="editMovieForm.directors.$dirty">
+                    <p ng-message="required">Director(s) Required</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2"><label for="writer">Writer</label></div>
+                <div class="col-md-5"><input class="form-control" type="text" id="writer" name="writer"
+                                             placeholder="Enter Writer Name here"
+                                             ng-model="adminHomeCtrl.currentVideo.writer" required/>
+                </div>
+                <div class="col-md-3 error" ng-messages="editMovieForm.writer.$error"
+                     ng-if="editMovieForm.writer.$dirty">
+                    <p ng-message="required">Writer Required</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2"><label for="actors">Actor(s)</label></div>
+                <div class="col-md-5"><input class="form-control" type="text" id="actors" name="actors"
+                                             placeholder="Enter Actor Name here"
+                                             ng-model="adminHomeCtrl.currentVideo.actors" required/>
+                </div>
+                <div class="col-md-3 error" ng-messages="editMovieForm.actors.$error"
+                     ng-if="editMovieForm.actors.$dirty">
+                    <p ng-message="required">Actors Required</p></div>
+            </div>
+            <div class="row">
+                <div class="col-md-2"><label for="plot">Plot</label></div>
+                <div class="col-md-5"><textarea class="form-control" type="text" id="plot" name="plot"
+                                                placeholder="Enter Plot here"
+                                                ng-model="adminHomeCtrl.currentVideo.plot" required></textarea></div>
+                <div class="col-md-3 error" ng-messages="editMovieForm.plot.$error" ng-if="editMovieForm.plot.$dirty">
+                    <p ng-message="required">Plot Required</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2"><label for="language">Language</label></div>
+                <div class="col-md-5"><select id="language" name="language" class="form-control"
+                                              ng-model="adminHomeCtrl.currentVideo.language" multiple required>
+                    <option style="color: #111111" ng-repeat="lang in adminHomeCtrl.langs" value="{{lang}}">{{lang}}
+                    </option>
+                </select></div>
+                <div class="col-md-3 error" ng-messages="editMovieForm.language.$error"
+                     ng-if="editMovieForm.language.$dirty">
+                    <p ng-message="required">Language Required</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2"><label for="country">Country</label></div>
+                <div class="col-md-5"><select id="country" name="country" class="form-control"
+                                              ng-model="adminHomeCtrl.currentVideo.country" multiple required>
+                    <option style="color: #111111" ng-repeat="ct in adminHomeCtrl.countries" value="{{ct}}">{{ct}}
+                    </option>
+                </select></div>
+                <div class="col-md-3 error" ng-messages="editMovieForm.country.$error"
+                     ng-if="editMovieForm.country.$dirty">
+                    <p ng-message="required">Country Required</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2"><label for="awards">Award(s)</label></div>
+                <div class="col-md-5"><input class="form-control" type="text" name="awards" id="awards"
+                                             placeholder="Enter Awards here"
+                                             ng-model="adminHomeCtrl.currentVideo.awards" required/>
+                </div>
+                <div class="col-md-3 error" ng-messages="editMovieForm.awards.$error"
+                     ng-if="editMovieForm.awards.$dirty">
+                    <p ng-message="required">Awards Required</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2"><label for="poster">Poster URL</label></div>
+                <div class="col-md-5"><input class="form-control" type="text" name="poster" id="poster"
+                                             placeholder="Enter Link to poster here"
+                                             ng-model="adminHomeCtrl.currentVideo.poster" required/></div>
+                <div class="col-md-3 error" ng-messages="editMovieForm.poster.$error"
+                     ng-if="editMovieForm.poster.$dirty">
+                    <p ng-message="required">Poster Required</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2"><label for="metascore">Metascore</label></div>
+                <div class="col-md-5"><input class="form-control" type="number" name="metascore" id="metascore"
+                                             placeholder="Enter metascore here" min="0"
+                                             ng-model="adminHomeCtrl.currentVideo.metascore" required/></div>
+                <div class="col-md-3 error" ng-messages="editMovieForm.metascore.$error"
+                     ng-if="editMovieForm.metascore.$dirty">
+                    <p ng-message="required">Metascore Required</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2"><label for="imdbRatings">imdb Ratings</label></div>
+                <div class="col-md-5"><input class="form-control" type="text" name="imdbRatings" id="imdbRatings"
+                                             placeholder="Enter imdbRatings here"
+                                             ng-model="adminHomeCtrl.currentVideo.imdbRating" required/></div>
+                <div class="col-md-3 error" ng-messages="editMovieForm.imdbRatings.$error"
+                     ng-if="editMovieForm.imdbRatings.$dirty">
+                    <p ng-message="required">imdb Ratings Required</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2"><label for="imdbVotes">imdb Votes</label></div>
+                <div class="col-md-5"><input class="form-control" type="number" name="imdbVotes" id="imdbVotes"
+                                             placeholder="Enter imdbVotes here" min="0"
+                                             ng-model="adminHomeCtrl.currentVideo.imdbVotes" required/></div>
+                <div class="col-md-3 error" ng-messages="editMovieForm.imdbVotes.$error"
+                     ng-if="editMovieForm.imdbVotes.$dirty">
+                    <p ng-message="required">imdb Vote Count Required</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2"><label for="imdbId">imdb ID</label></div>
+                <div class="col-md-5"><input class="form-control" type="text" name="imdbId" id="imdbId"
+                                             placeholder="Enter imdbId here"
+                                             ng-model="adminHomeCtrl.currentVideo.imdbID" required/>
+                </div>
+                <div class="col-md-3 error" ng-messages="editMovieForm.imdbId.$error"
+                     ng-if="editMovieForm.imdbId.$dirty">
+                    <p ng-message="required">imdb ID Required</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2"><label for="type">Movie/Series</label></div>
+                <div class="col-md-5"><select id="type" name="type" class="form-control"
+                                              ng-model="adminHomeCtrl.currentVideo.type" required>
+                    <option style="color: #111111" ng-repeat="type in adminHomeCtrl.types" value="{{type}}">{{type}}
+                    </option>
+                </select></div>
+                <div class="col-md-3 error" ng-messages="editMovieForm.type.$error" ng-if="editMovieForm.type.$dirty">
+                    <p ng-message="required">Video category Required</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2"><label for="ratings">Movieflix Ratings</label></div>
+                <div class="col-md-5"><input class="form-control" name="ratings" type="text" id="ratings"
+                                             placeholder="Enter ratings here"
+                                             ng-model="adminHomeCtrl.currentVideo.ratings" required/>
+                </div>
+                <div class="col-md-3 error" ng-messages="editMovieForm.ratings.$error"
+                     ng-if="editMovieForm.ratings.$dirty">
+                    <p ng-message="required">Movieflix Ratings Required</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2"><label for="raters">Movieflix voters</label></div>
+                <div class="col-md-5"><input class="form-control" name="raters" type="number" id="raters"
+                                             placeholder="Enter raters here" min="0"
+                                             ng-model="adminHomeCtrl.currentVideo.raters" required/></div>
+                <div class="col-md-3 error" ng-messages="editMovieForm.raters.$error"
+                     ng-if="editMovieForm.raters.$dirty">
+                    <p ng-message="required">Movieflix voter count Required</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <button class="btn btn-md btn-success" type="submit" id="submitbtn"
+                            ng-disabled="editMovieForm.$invalid">Update
+                    </button>
+                </div>
+                <div class="col-md-3">
+                    <button class="btn btn-md btn-default" type="reset" id="resetbtn">Reset</button>
+                </div>
+                <div class=" col-md-3">
+                    <button class="btn btn-md btn-danger" type="button" id="cancelbtn" class="close"
+                            data-dismiss="modal">Cancel
+                    </button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+</div>
+
+

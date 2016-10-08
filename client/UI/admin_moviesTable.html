@@ -31,6 +31,7 @@
         <th>Directors</th>
         <th>Ratings</th>
         <th>imdb Id</th>
+        <th></th>
     </tr>
     </thead>
     <tbody>
@@ -47,7 +48,13 @@
         <td>{{video.director}}</td>
         <td>{{video.ratings}}</td>
         <td><a href="">{{video.imdbID}}</a></td>
+        <td> <button class="btn btn-md btn-primary" data-toggle="modal" data-target="#editMovieModal" ng-click="adminHomeCtrl.setCurrentVideo(video)">Edit</button></td>
     </tr>
-
     </tbody>
 </table>
+
+<div class="modal" id="editMovieModal" ng-include="'../UI/admin_movies_EditModal.Templ.html'">
+</div>
+
+
+
