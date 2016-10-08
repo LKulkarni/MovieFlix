@@ -6,39 +6,41 @@
     angular.module('movieflix')
         .controller('user_homeController', user_homeController);
 
-    user_homeController.$inject = ['userService','videoService']
-    function user_homeController(userService,videoService) {
-        var dataVm=this;
-        dataVm.addWatched= addWatched;
-
-
+    user_homeController.$inject = ['userService', 'videoService']
+    function user_homeController(userService, videoService) {
+        var dataVm = this;
+        dataVm.currentVideo = null;
+        dataVm.addWatched = addWatched;
+        dataVm.setCurrent = setCurrentMovie;
 
 
         init();
 
-           function init()
-           {
-               videoService.findAll()
-                   .then(function (data) {
-                       dataVm.allVideos = data;
-                       console.dir(dataVm.allVideos);
-                   }, function (error) {
-                       console.log(error);
-                   });
-           }
+        function init() {
+            videoService.findAll()
+                .then(function (data) {
+                    dataVm.allVideos = data;
+                    console.dir(dataVm.allVideos);
+                }, function (error) {
+                    console.log(error);
+                });
+        }
 
 
-           function addWatched(user,video)
-           {
-               user.watched.push(video)
-               userService.update(user.id,user)
-                   .then(function(response){
-                       dataVm.user=response;
-                   },function(error){
-                       console.log(error);
-                   });
-           }
+        function addWatched(user, video) {
+            user.watched.push(video)
+            userService.update(user.id, user)
+                .then(function (response) {
+                    dataVm.user = response;
+                }, function (error) {
+                    console.log(error);
+                });
+        }
 
+        function setCurrentMovie(video) {
+            console.log("Setting current video");
+            dataVm.currentVideo = video;
+        }
 
 
     }

@@ -4,7 +4,7 @@
 (function () {
 
 
-    angular.module('movieflix', ['ngMessages', 'ngRoute', 'ngCookies'])
+    angular.module('movieflix', ['ngMessages', 'ngRoute', 'ngCookies','ngAnimate'])
         .config(moduleConfig)
         .run(moduleRun);
 

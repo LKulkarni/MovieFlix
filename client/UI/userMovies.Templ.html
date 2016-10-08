@@ -42,7 +42,7 @@
                         Ratings: </h4>
                         {{video.imdbRating}}</p>
                         <p><h4>Genre: </h4>{{video.genre}}</p>
-                        <p><h4>Actors: </h4> {{video.actors}}</p>
+                        <p>Ratings:</p>
                         <div class="row">
                             <div class="col-md-2 col-md-offset-1">
                                 <button class="btn  btn-sm btn-primary" ng-click="homeCtrl.addWatched(lc.user,video)">
@@ -54,7 +54,8 @@
                                 </button>
                             </div>
                             <div class="col-md-2 col-md-offset-1">
-                                <button class="btn  btn-sm btn-default">Info <i class="material-icons">info</i>
+                                <button class="btn btn-sm btn-default" data-toggle="modal" data-target="#movieModal"
+                                        ng-click="homeCtrl.setCurrent(video)">Info<i class="material-icons">info</i>
                                 </button>
                             </div>
                         </div>
@@ -64,4 +65,68 @@
 
         </div>
     </div>
+
+    <div class="modal" id="movieModal">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header" style="padding:35px 50px;">
+                <img style="width:150px;height: 200px;float: left;" ng-src="{{homeCtrl.currentVideo.poster}}"/>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h2>{{homeCtrl.currentVideo.title}}</h2>
+                <h4>Genre: {{homeCtrl.currentVideo.genre}}</h4>
+                <h4>Year: {{homeCtrl.currentVideo.year}} Rating: {{homeCtrl.currentVideo.rated}}</h4>
+                <h4>Type: {{homeCtrl.currentVideo.type}} Runtime:{{homeCtrl.currentVideo.runtime}}</h4>
+            </div>
+
+            <div class="modal-body" style="padding:40px 50px;">
+                <table class="table">
+                    <tr>
+                        <th>Plot</th>
+                        <td>{{homeCtrl.currentVideo.plot}}</td>
+                    </tr>
+                    <tr>
+                        <th>Actors</th>
+                        <td>{{homeCtrl.currentVideo.actors}}</td>
+                    </tr>
+                    <tr>
+                        <th>Director</th>
+                        <td>{{homeCtrl.currentVideo.director}}</td>
+                    </tr>
+                    <tr>
+                        <th>Actors</th>
+                        <td>{{homeCtrl.currentVideo.writer}}</td>
+                    </tr>
+                    <tr>
+                        <th>Awards</th>
+                        <td>{{homeCtrl.currentVideo.awards}}</td>
+                    </tr>
+                    <tr>
+                        <th>Language</th>
+                        <td>{{homeCtrl.currentVideo.language}}</td>
+                    </tr>
+                    <tr>
+                        <th>Country</th>
+                        <td>{{homeCtrl.currentVideo.country}}</td>
+                    </tr>
+                    <tr>
+                        <th>IMDB ID</th>
+                        <td><a href="http://www.imdb.com/title/{{homeCtrl.currentVideo.imdbID}}/" target="_blank">{{homeCtrl.currentVideo.imdbID}}</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>IMDB Ratings</th>
+                        <td>{{homeCtrl.currentVideo.imdbRating}}</td>
+                    </tr>
+                    <tr>
+                        <th>Movieflix Ratings</th>
+                        <td>{{homeCtrl.currentVideo.ratings}}</td>
+                    </tr>
+
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+
 </div>

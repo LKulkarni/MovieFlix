@@ -3,3 +3,9 @@ $(document).ready(function(){
         $("#loginModal").modal();
     });
 });
+
+$(document).ready(function(){
+    $("#loginSubmit").click(function(){
+        $("#loginModal").modal("hide");
+    });
+});
