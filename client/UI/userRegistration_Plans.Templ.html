@@ -11,7 +11,7 @@
 
     </ul>
 </div>
-<div ng-repeat="plan in regCtrl.allPlans" class="columns">
+<div ng-repeat="plan in regCtrl.allPlans | orderBy:'screens'"  class="columns">
     <ul class="price">
         <li class="header">{{plan.planName}}</li>
         <li class="grey">{{plan.cost}} / month</li>
@@ -22,7 +22,12 @@
         <li>{{plan.cancelAnytime}}</li>
         <li>{{plan.firstMonthFree}}</li>
         <li>
-            <input type="radio" name="userPlan" ng-model="regCtrl.selectedUserPlan" value={{plan}} class="btn btn-md btn-danger"/>
+            <input type="radio" name="userPlan" ng-model="regCtrl.selectedUserPlan" value={{plan}} class="btn btn-md btn-danger" required/>
         </li>
     </ul>
+</div>
+<div class="row">
+    <div class="col-md-12 error" ng-messages="regForm.userPlan.$error" ng-if="regForm.userPlan.$dirty">
+        <p ng-message="required">Plan required</p>
+    </div>
 </div>
