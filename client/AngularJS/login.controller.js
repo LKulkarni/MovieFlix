@@ -24,14 +24,14 @@
 
         function login() {
             authFactory.login(loginVm.username, loginVm.password, function (response) {
-                /*User*/
+                /* For User */
                 if (response.active && response.role == "User") {
                     loginVm.user = response;
                     authFactory.setCredentials(loginVm.username, loginVm.password, loginVm.firstName, loginVm.lastName);
                     $location.path('/userhome');
 
                 }
-                /*Admin*/
+                /* For Admin */
                 else if (response.active && response.role == "Admin") {
                     $location.path('/admin/home');
                 }

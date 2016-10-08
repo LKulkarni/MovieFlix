@@ -97,7 +97,7 @@
         <div class="row">
             <div class="col-md-2"><label for="language">Language</label></div>
             <div class="col-md-5"><select id="language" name="language" class="form-control"
-                                          ng-model="adminHomeCtrl.newVideo.language" required>
+                                          ng-model="adminHomeCtrl.newVideo.language" multiple required>
                 <option style="color: #111111" ng-repeat="lang in adminHomeCtrl.langs" value="{{lang}}">{{lang}}
                 </option>
             </select></div>
@@ -108,7 +108,7 @@
         <div class="row">
             <div class="col-md-2"><label for="country">Country</label></div>
             <div class="col-md-5"><select id="country" name="country" class="form-control"
-                                          ng-model="adminHomeCtrl.newVideo.country" required>
+                                          ng-model="adminHomeCtrl.newVideo.country" multiple required>
                 <option style="color: #111111" ng-repeat="ct in adminHomeCtrl.countries" value="{{ct}}">{{ct}}
                 </option>
             </select></div>
