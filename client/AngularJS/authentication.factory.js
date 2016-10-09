@@ -47,7 +47,6 @@
             $rootScope.globals = {};
             $cookies.remove('globals');
             $http.defaults.headers.common.Authorization = 'Basic';
-            $window.globals = {};
         }
     }
 

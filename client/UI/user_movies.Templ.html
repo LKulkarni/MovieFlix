@@ -13,28 +13,36 @@
 
     <!--Search bar-->
     <div class="row" id="searchContainer">
-        <div class=" col-md-4 col-md-offset-4">
+        <div class=" col-md-4 col-md-offset-3">
             <div class="input-group">
                 <input type="text" ng-model="homeCtrl.searchFilter" class="form-control"
-                       placeholder="Filter by Title, Genre, Actors...">
+                       placeholder="Filter by Title, Genre, Actors..."/>
                 <span class="input-group-btn">
         <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
-      </span>
+                </span>
             </div>
         </div>
-        <div col-md-offset-1 col-md-2><select class="form-control" ng-model="homeCtrl.sorter.by" placeholder="Sort By"
-                                              autofocus>
+        <div class="col-md-1"><select class="form-control" ng-model="homeCtrl.sorter.by" placeholder="Sort By"
+                                      autofocus>
             <option value="">Sort By</option>
             <option value="title">Title</option>
             <option value="released">Year</option>
             <option value="imdbRating">imdb Ratings</option>
+            <option value="imdbVotes">imdb Votes</option>
             <option value="rating">Ratings</option>
-        </select></div>
+        </select>
+        </div>
+        <div class="col-md-2 col-md-offset-1">
+            <label for="reverse">Reverse</label>
+            <input style="background: transparent; margin: 0;" id="reverse" type="checkbox"
+                   ng-model="homeCtrl.sorter.reverse"/>
+
+        </div>
     </div>
     <div id="moviesContainer">
         <div class="row">
             <div class="col-md-4 tile"
-                 ng-repeat="video in homeCtrl.allVideos | filter:homeCtrl.searchFilter | orderBy:homeCtrl.sorter.by: false">
+                 ng-repeat="video in homeCtrl.allVideos | filter:homeCtrl.searchFilter | orderBy:homeCtrl.sorter.by: homeCtrl.sorter.reverse">
                 <div class="thumbnail">
                     <img ng-src="{{video.poster}}"
                          alt={{video.title}}>
