@@ -40,8 +40,8 @@
         </li>
         <li id="sign" class="right">
             <button ng-show="lc.user==null" class="sign" id="signIn">Sign In</button>
-            <div class="userdetails" ng-show="lc.user.active">
-                <img style="border-radius: 50%" alt="img"><span>{{$rootScope.currentUser}}</span>
+            <div class="userdetails ng-cloak" ng-show="lc.user.active">
+                <img style="border-radius: 50%" alt="img"><span>{{lc.user.firstName}} {{lc.user.lastName}}</span>
                 <button ng-click="lc.logout()" class="sign" id="signOut">Sign Out</button>
             </div>
         </li>

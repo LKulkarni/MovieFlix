@@ -17,9 +17,10 @@
 
         init();
 
-        getCurrentUser();
+
         function init() {
             authFactory.clearCredentials();
+            getCurrentUser();
         }
 
         function login() {
@@ -27,13 +28,15 @@
                 /* For User */
                 if (response.active && response.role == "User") {
                     loginVm.user = response;
-                    authFactory.setCredentials(loginVm.username, loginVm.password, loginVm.firstName, loginVm.lastName);
+                    authFactory.setCredentials(loginVm.username, loginVm.password, loginVm.user.firstName, loginVm.user.lastName, response);
                     $location.path('/userhome');
 
                 }
                 /* For Admin */
                 else if (response.active && response.role == "Admin") {
-                    $location.path('/admin/home');
+                    loginVm.user = response;
+                    authFactory.setCredentials(loginVm.username, loginVm.password, loginVm.user.firstName, loginVm.user.lastName, response)
+                    $location.path('/adminhome');
                 }
 
                 else {
@@ -54,8 +57,7 @@
 
         function getCurrentUser() {
 
-            console.dir($rootScope.globals);
-            return $rootScope.globals.currentUser;
+            loginVm.user = $rootScope.globals.user;
         }
 
     }

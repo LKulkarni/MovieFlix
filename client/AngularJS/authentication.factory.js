@@ -7,8 +7,8 @@
         .module('movieflix')
         .factory('authFactory', AuthenticationFactory);
 
-    AuthenticationFactory.$inject = ['$http', '$cookieStore', '$rootScope', 'userService'];
-    function AuthenticationFactory($http, $cookieStore, $rootScope, userService) {
+    AuthenticationFactory.$inject = ['$http', '$cookies', '$rootScope', 'userService'];
+    function AuthenticationFactory($http, $cookies, $rootScope, userService) {
         var serviceVm = {};
         serviceVm.login = login;
         serviceVm.setCredentials = setCredentials;
@@ -26,7 +26,7 @@
         }
 
         //set up cookies
-        function setCredentials(username, password, firstname,lastname) {
+        function setCredentials(username, password, firstname, lastname, userobj) {
             var authdata = Base64.encode(username + ':' + password);
             $rootScope.globals = {
                 currentUser: {
@@ -34,17 +34,20 @@
                     lastname: lastname,
                     username: username,
                     authdata: authdata
-                }
+                },
+                user: userobj
             };
             $http.defaults.headers.common['Authorization'] = 'Basic' + authdata;
-            $cookieStore.put('globals', $rootScope.globals);
+            $cookies.put('globals', $rootScope.globals);
+
         }
 
         //delete cookies
         function clearCredentials() {
             $rootScope.globals = {};
-            $cookieStore.remove('globals');
+            $cookies.remove('globals');
             $http.defaults.headers.common.Authorization = 'Basic';
+            $window.globals = {};
         }
     }
 

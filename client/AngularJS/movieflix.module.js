@@ -4,31 +4,30 @@
 (function () {
 
 
-    angular.module('movieflix', ['ngMessages', 'ngRoute', 'ngCookies','ngAnimate'])
+    angular.module('movieflix', ['ngMessages', 'ngRoute', 'ngCookies', 'ngAnimate'])
         .config(moduleConfig)
         .run(moduleRun);
 
-    moduleRun.$inject = ['$rootScope', '$location', '$cookieStore', '$http'];
-    function moduleRun() {
+    moduleRun.$inject = ['$rootScope', '$location', '$cookies', '$http'];
+    function moduleRun($rootScope, $location, $cookies, $http) {
         console.log('Movieflix started');
-        run.$inject = ['$rootScope', '$location', '$cookieStore', '$http'];
-        function run($rootScope, $location, $cookieStore, $http) {
 
-            // keep user logged in after page refresh
-            $rootScope.globals = $cookieStore.get('globals') || {};
-            if ($rootScope.globals.currentUser) {
-                $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.globals.currentUser.authdata; // jshint ignore:line
-            }
-
-            $rootScope.$on('$locationChangeStart', function (event, next, current) {
-                // redirect to login page if not logged in and trying to access a restricted page
-                var restrictedPage = $.inArray($location.path(), ['/login', '/register']) === -1;
-                var loggedIn = $rootScope.globals.currentUser;
-                if (restrictedPage && !loggedIn) {
-                    $location.path('/login');
-                }
-            });
+        // keep user logged in after page refresh
+        $rootScope.globals = $cookies.get('globals') || {};
+        if ($rootScope.globals.currentUser) {
+            $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.globals.currentUser.authdata; // jshint ignore:line
         }
+
+        $rootScope.$on('$locationChangeStart', function (event, next, current) {
+            // redirect to login page if not logged in and trying to access a restricted page
+            //var restrictedPage = $.inArray($location.path(), ['/adminhome', '/userhome']) === 1;
+            var restrictedPage = $location.path() == '/adminhome' || $location.path() == '/userhome';
+            var loggedIn = $rootScope.globals.currentUser;
+            if (restrictedPage && !loggedIn) {
+                $location.path('/');
+            }
+        });
+
     }
 
     moduleConfig.$inject = ['$routeProvider', '$locationProvider', '$httpProvider'];
@@ -59,7 +58,7 @@
                 }
             )
 
-            .when('/admin/home',
+            .when('/adminhome',
                 {
                     templateUrl: '../UI/admin_home.Templ.html',
                     controller: 'admin_homeController',
