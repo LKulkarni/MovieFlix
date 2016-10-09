@@ -43,16 +43,7 @@
             dataVm.types = ['movie', 'series'];
         }
 
-
-        function getUsers() {
-            userService.findAll()
-                .then(function (response) {
-                    dataVm.users = response;
-                }, function (error) {
-                    Console.log(error);
-                });
-        }
-
+        /* methods for video*/
 
         function getVideos() {
             videoService.findAll()
@@ -68,8 +59,8 @@
         function addVideo() {
             /* Conversion for multi-select (array to string)*/
             dataVm.newVideo.genre = dataVm.newVideo.genre.join(', ');
-            dataVm.newVideo.language=dataVm.newVideo.language.join(', ');
-            dataVm.newVideo.country= dataVm.newVideo.country.join(', ');
+            dataVm.newVideo.language = dataVm.newVideo.language.join(', ');
+            dataVm.newVideo.country = dataVm.newVideo.country.join(', ');
 
             videoService.addNew(dataVm.newVideo)
                 .then(function (response) {
@@ -93,52 +84,64 @@
 
         }
 
-        function deleteUser(id) {
-            userService.deleteOne(id)
-                .then(function (response) {
-                        console.log("User " + id + " successfully deleted")
-                        getUsers();
-                    },
-                    function (error) {
-                        console.log("User " + id + " delete failed")
-                    });
-
-        }
-
         function setCurrentVideo(video) {
 
             dataVm.currentVideo = video;
 
-            dataVm.currentVideo.year=parseInt(video.year);
+            dataVm.currentVideo.year = parseInt(video.year);
 
             /* Conversion for date*/
-            dataVm.currentVideo.released=new Date(video.released);
+            dataVm.currentVideo.released = new Date(video.released);
 
             /* Conversion for multi-select (string to array)*/
-            dataVm.currentVideo.language= video.language.split(", ");
-            dataVm.currentVideo.genre=video.genre.split(", ");
-            dataVm.currentVideo.country=video.country.split(", ");
+            dataVm.currentVideo.language = video.language.split(", ");
+            dataVm.currentVideo.genre = video.genre.split(", ");
+            dataVm.currentVideo.country = video.country.split(", ");
         }
 
         function updateVideo() {
-            dataVm.updatedVideo=dataVm.currentVideo;
+            dataVm.updatedVideo = dataVm.currentVideo;
             /* Conversion for multi-select (array to string)*/
-            dataVm.updatedVideo.language=dataVm.currentVideo.language.join(", ");
-            dataVm.updatedVideo.genre=dataVm.currentVideo.genre.join(", ");
-            dataVm.updatedVideo.country=dataVm.currentVideo.country.join(", ");
+            dataVm.updatedVideo.language = dataVm.currentVideo.language.join(", ");
+            dataVm.updatedVideo.genre = dataVm.currentVideo.genre.join(", ");
+            dataVm.updatedVideo.country = dataVm.currentVideo.country.join(", ");
 
-            videoService.update(dataVm.updatedVideo.id,dataVm.updatedVideo)
+            videoService.update(dataVm.updatedVideo.id, dataVm.updatedVideo)
                 .then(function (response) {
-                    console.log(response.id+" updated successfully");
-                    dataVm.updatedVideo=null;
-                    $
-                },function (error) {
-                    console.log("failed to update "+dataVm.updatedVideo.id);
+                    console.log(response.id + " updated successfully");
+                    dataVm.updatedVideo = null;
+
+                }, function (error) {
+                    console.log("failed to update " + dataVm.updatedVideo.id);
                 })
 
 
+        }
+
+        /* methods for user*/
+
+        function getUsers() {
+            userService.findAll()
+                .then(function (response) {
+                    dataVm.users = response;
+                }, function (error) {
+                    Console.log(error);
+                });
+        }
+
+
+        function deleteUser(id) {
+            userService.deleteOne(id)
+                .then(function (response) {
+                        console.log("User " + id + " successfully deleted");
+                        getUsers();
+                    },
+                    function (error) {
+                        console.log("User " + id + " delete failed");
+                    });
 
         }
+
 
     }
 })();

@@ -6,11 +6,11 @@
     angular.module('movieflix')
         .controller('user_registrationController', user_regController);
 
-    user_regController.$inject = ['userService', 'subscriptionService','$location']
-    function user_regController(userService, subscriptionService,$location) {
+    user_regController.$inject = ['userService', 'subscriptionService', '$location']
+    function user_regController(userService, subscriptionService, $location) {
         var dataVm = this;
-        dataVm.mm=[];
-        dataVm.yyyy=[];
+        dataVm.mm = [];
+        dataVm.yyyy = [];
 
         dataVm.createUser = createUser;
         init();
@@ -25,27 +25,28 @@
             initComponents();
         }
 
-
-        function initComponents()
-        {
-            for(i=1;i<=12;i++)
-            {
+        // initialize form components
+        function initComponents() {
+            // init month dropdown
+            for (i = 1; i <= 12; i++) {
                 dataVm.mm.push(i);
             }
-            for(i=0;i<10;i++)
-            {
-                dataVm.yyyy.push(new Date().getFullYear()+i);
+            // init year dropdown
+            for (i = 0; i < 10; i++) {
+                dataVm.yyyy.push(new Date().getFullYear() + i);
             }
         }
 
-        function createUser() {
 
-           dataVm.user.userPlan=JSON.parse(dataVm.selectedUserPlan);
-           dataVm.user.userPayment.expiryDate=new Date('01-'+dataVm.cardMM+'-'+dataVm.cardYYYY);
+        function createUser() {
+            //convert userPlan object to json
+            dataVm.user.userPlan = JSON.parse(dataVm.selectedUserPlan);
+            // set user payment expiry date
+            dataVm.user.userPayment.expiryDate = new Date('01-' + dataVm.cardMM + '-' + dataVm.cardYYYY);
             userService.addNew(dataVm.user)
                 .then(function (data) {
                     dataVm.user = data;
-                    console.dir("Saved"+ dataVm.user);
+                    console.dir("Saved" + dataVm.user);
                     $location.path('/');
                 }, function (error) {
                     console.log(error);

@@ -1,9 +1,12 @@
+<!-- Add Movies Template -->
+
 <div class="container-fluid">
     <form id="movieForm" name="movieForm" ng-submit="adminHomeCtrl.addVideo()" novalidate>
         <div class="row">
             <div class="col-md-2"><label for="title">Title</label></div>
             <div class="col-md-5"><input class="form-control" type="text" id="title" name="title"
-                                         placeholder="Enter Title" ng-model="adminHomeCtrl.newVideo.title" required/></div>
+                                         placeholder="Enter Title" ng-model="adminHomeCtrl.newVideo.title" required/>
+            </div>
             <div class="col-md-3 error" ng-messages="movieForm.title.$error" ng-if="movieForm.title.$dirty">
                 <p ng-message="required">Video Title Required</p>
             </div>
@@ -52,9 +55,10 @@
             <div class="col-md-2"><label for="genre">Genre</label></div>
             <div class="col-md-5">
                 <select name="genre" id="genre" class="form-control"
-                                          ng-model="adminHomeCtrl.newVideo.genre" multiple required>
-                <option style="color: #111111" ng-repeat="gen in adminHomeCtrl.genres" value="{{gen}}">{{gen}}</option>
-            </select></div>
+                        ng-model="adminHomeCtrl.newVideo.genre" multiple required>
+                    <option style="color: #111111" ng-repeat="gen in adminHomeCtrl.genres" value="{{gen}}">{{gen}}
+                    </option>
+                </select></div>
             <div class="col-md-3 error" ng-messages="movieForm.genre.$error" ng-if="movieForm.genre.$dirty">
                 <p ng-message="required">Atleast one Genre required</p>
             </div>
@@ -71,7 +75,8 @@
         <div class="row">
             <div class="col-md-2"><label for="writer">Writer</label></div>
             <div class="col-md-5"><input class="form-control" type="text" id="writer" name="writer"
-                                         placeholder="Enter Writer Name here" ng-model="adminHomeCtrl.newVideo.writer" required/>
+                                         placeholder="Enter Writer Name here" ng-model="adminHomeCtrl.newVideo.writer"
+                                         required/>
             </div>
             <div class="col-md-3 error" ng-messages="movieForm.writer.$error" ng-if="movieForm.writer.$dirty">
                 <p ng-message="required">Writer Required</p>
@@ -80,7 +85,8 @@
         <div class="row">
             <div class="col-md-2"><label for="actors">Actor(s)</label></div>
             <div class="col-md-5"><input class="form-control" type="text" id="actors" name="actors"
-                                         placeholder="Enter Actor Name here" ng-model="adminHomeCtrl.newVideo.actors" required/>
+                                         placeholder="Enter Actor Name here" ng-model="adminHomeCtrl.newVideo.actors"
+                                         required/>
             </div>
             <div class="col-md-3 error" ng-messages="movieForm.actors.$error" ng-if="movieForm.actors.$dirty">
                 <p ng-message="required">Actors Required</p></div>
@@ -119,7 +125,8 @@
         <div class="row">
             <div class="col-md-2"><label for="awards">Award(s)</label></div>
             <div class="col-md-5"><input class="form-control" type="text" name="awards" id="awards"
-                                         placeholder="Enter Awards here" ng-model="adminHomeCtrl.newVideo.awards" required/>
+                                         placeholder="Enter Awards here" ng-model="adminHomeCtrl.newVideo.awards"
+                                         required/>
             </div>
             <div class="col-md-3 error" ng-messages="movieForm.awards.$error" ng-if="movieForm.awards.$dirty">
                 <p ng-message="required">Awards Required</p>
@@ -164,9 +171,10 @@
         <div class="row">
             <div class="col-md-2"><label for="imdbId">imdb ID</label></div>
             <div class="col-md-5"><input class="form-control" type="text" name="imdbId" id="imdbId"
-                                         placeholder="Enter imdbId here" ng-model="adminHomeCtrl.newVideo.imdbID" required/>
+                                         placeholder="Enter imdbId here" ng-model="adminHomeCtrl.newVideo.imdbID"
+                                         required/>
             </div>
-            <div class="col-md-3 error" ng-messages="movieForm.imdbId.$error" ng-if="movieForm.imdbId.$dirty" >
+            <div class="col-md-3 error" ng-messages="movieForm.imdbId.$error" ng-if="movieForm.imdbId.$dirty">
                 <p ng-message="required">imdb ID Required</p>
             </div>
         </div>
@@ -184,7 +192,8 @@
         <div class="row">
             <div class="col-md-2"><label for="ratings">Movieflix Ratings</label></div>
             <div class="col-md-5"><input class="form-control" name="ratings" type="text" id="ratings"
-                                         placeholder="Enter ratings here" ng-model="adminHomeCtrl.newVideo.ratings" required/>
+                                         placeholder="Enter ratings here" ng-model="adminHomeCtrl.newVideo.ratings"
+                                         required/>
             </div>
             <div class="col-md-3 error" ng-messages="movieForm.ratings.$error" ng-if="movieForm.ratings.$dirty">
                 <p ng-message="required">Movieflix Ratings Required</p>
@@ -201,7 +210,9 @@
         </div>
         <div class="row">
             <div class="col-md-offset-2 col-md-3">
-                <button class="btn btn-md btn-success" type="submit" id="submitbtn" ng-disabled="movieForm.$invalid">Add</button>
+                <button class="btn btn-md btn-success" type="submit" id="submitbtn" ng-disabled="movieForm.$invalid">
+                    Add
+                </button>
             </div>
             <div class="col-md-3">
                 <button class="btn btn-md btn-default" type="reset" id="resetbtn">Reset</button>

@@ -1,4 +1,8 @@
-label,input{
+/*
+CSS for Registration Page
+*/
+
+label, input {
     display: inline;
 }
 
@@ -6,20 +10,19 @@ label,input{
     margin: 3px;
 }
 
-input[type="radio"]
-{
+input[type="radio"] {
     padding: 0;
     margin: auto;
-    width:1.5em;
-    height:1.5em;
+    width: 1.5em;
+    height: 1.5em;
     text-align: center;
 }
 
-fieldset
-{margin-top: 15px;}
+fieldset {
+    margin-top: 15px;
+}
 
-#signUpFormContainer
-{
-    width:80%;
-    margin:auto;
+#signUpFormContainer {
+    width: 80%;
+    margin: auto;
 }

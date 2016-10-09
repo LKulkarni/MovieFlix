@@ -1,3 +1,5 @@
+<!-- User Registration plan template -->
+
 <div class="columns title">
     <ul class="price">
         <li class="header">Available Plans</li>
@@ -11,7 +13,7 @@
 
     </ul>
 </div>
-<div ng-repeat="plan in regCtrl.allPlans | orderBy:'screens'"  class="columns">
+<div ng-repeat="plan in regCtrl.allPlans | orderBy:'screens'" class="columns">
     <ul class="price">
         <li class="header">{{plan.planName}}</li>
         <li class="grey">{{plan.cost}} / month</li>
@@ -22,7 +24,8 @@
         <li>{{plan.cancelAnytime}}</li>
         <li>{{plan.firstMonthFree}}</li>
         <li>
-            <input type="radio" name="userPlan" ng-model="regCtrl.selectedUserPlan" value={{plan}} class="btn btn-md btn-danger" required/>
+            <input type="radio" name="userPlan" ng-model="regCtrl.selectedUserPlan" value={{plan}}
+                   class="btn btn-md btn-danger" required/>
         </li>
     </ul>
 </div>

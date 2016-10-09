@@ -20,13 +20,12 @@
             videoService.findAll()
                 .then(function (data) {
                     dataVm.allVideos = data;
-                    console.dir(dataVm.allVideos);
                 }, function (error) {
                     console.log(error);
                 });
         }
 
-
+        // add to watched list of user
         function addWatched(user, video) {
             user.watched.push(video)
             userService.update(user.id, user)
@@ -37,8 +36,8 @@
                 });
         }
 
+        // set current movie for viewing info/watching
         function setCurrentMovie(video) {
-            console.log("Setting current video");
             dataVm.currentVideo = video;
         }
 

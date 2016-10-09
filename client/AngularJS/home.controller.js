@@ -24,7 +24,7 @@
                     console.log(error);
                 });
 
-
+            // get 3 random videos for homepage posters
             videoService.findFew(3)
                 .then(function (data) {
                     dataVm.allVideos = data;

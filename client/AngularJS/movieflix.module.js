@@ -13,6 +13,7 @@
         console.log('Movieflix started');
         run.$inject = ['$rootScope', '$location', '$cookieStore', '$http'];
         function run($rootScope, $location, $cookieStore, $http) {
+
             // keep user logged in after page refresh
             $rootScope.globals = $cookieStore.get('globals') || {};
             if ($rootScope.globals.currentUser) {
