@@ -49,7 +49,7 @@
         <td>{{video.actors}}</td>
         <td>{{video.director}}</td>
         <td>{{video.ratings}}</td>
-        <td><a href="">{{video.imdbID}}</a></td>
+        <td><a href="http://www.imdb.com/title/{{video.imdbID}}/" target="_blank">{{video.imdbID}}</a></td>
         <td> <button class="btn btn-md btn-primary" data-toggle="modal" data-target="#editMovieModal" ng-click="adminHomeCtrl.setCurrentVideo(video)">Edit</button></td>
     </tr>
     </tbody>
