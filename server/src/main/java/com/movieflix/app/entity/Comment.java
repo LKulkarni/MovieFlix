@@ -2,6 +2,7 @@ package com.movieflix.app.entity;
 
 import java.util.UUID;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
@@ -11,7 +12,7 @@ public class Comment {
 
 	@Id
 	private String commentId;
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	private User commenter;
 	private String message;
 

@@ -51,8 +51,43 @@
             </tr>
             <tr>
                 <th>Movieflix Ratings</th>
-                <td>{{homeCtrl.currentVideo.ratings}}</td>
+
+                <td>
+                    <form ng-submit="homeCtrl.updateRatings()">
+                        <input type="number" max="5" min="1" ng-model="homeCtrl.currentVideo.ratings"/>
+                        <button type="submit" ng-disabled="homeCtrl.disableratebtn" class="btn btn-md btn-md-primary">
+                            Rate It!
+                        </button>
+                    </form>
+                </td>
             </tr>
+            <tr>
+                <th>Comments</th>
+                <td>
+                    <div style="height:150px; overflow-y: scroll">
+                        <div class="row comments" ng-repeat="comm in homeCtrl.currentVideo.comments">
+                            <div class="col-lg-12">{{comm.message}}</div>
+                            <div class="col-md-offset-9 col-md-3">~ {{comm.commenter.firstName}}
+                                {{comm.commenter.lastName}}
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th></th>
+
+                <td>
+                    <form id="commentsForm" name="commentsForm" ng-submit="homeCtrl.addComment(lc.user)">
+                        <textarea cols="150" rows="10" name="comment" ng-model="homeCtrl.comment.message"
+                                  placeholder="Enter comments here"></textarea>
+                        <button type="submit" class="btn btn-md btn-md-primary">Post</button>
+                    </form>
+                </td>
+
+
+            </tr>
+
 
         </table>
     </div>
