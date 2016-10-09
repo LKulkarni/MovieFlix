@@ -2,14 +2,15 @@
 
 <div class="columns title">
     <ul class="price">
-        <li class="header">Available Plans</li>
-        <li class="header">Cost / month</li>
+        <li class="header">Plans</li>
+        <li class="grey">Cost / month</li>
         <li>Screens</li>
-        <li>HD Quality</li>
-        <li>Ultra HD</li>
-        <li>PC, Tablets and other devices</li>
-        <li>Cancel Any Time</li>
-        <li>First Month Free</li>
+        <li class="title_col">HD Quality</li>
+        <li class="title_col">Ultra HD</li>
+        <li class="title_col">PC, Tablets and more</li>
+        <li class="title_col">Cancel Any Time</li>
+        <li class="title_col">First Month Free</li>
+        <li style="color:transparent">NULL</li>
 
     </ul>
 </div>
@@ -18,11 +19,26 @@
         <li class="header">{{plan.planName}}</li>
         <li class="grey">{{plan.cost}} / month</li>
         <li>{{plan.screens}}</li>
-        <li>{{plan.hd}}</li>
-        <li>{{plan.ultraHd}}</li>
-        <li>{{plan.allDevices}}</li>
-        <li>{{plan.cancelAnytime}}</li>
-        <li>{{plan.firstMonthFree}}</li>
+        <li>
+            <i class="material-icons check-icon" ng-if="plan.hd">check</i>
+            <i class="material-icons clear-icon" ng-if="!plan.hd">clear</i>
+        </li>
+        <li>
+            <i class="material-icons check-icon" ng-if="plan.ultraHd">check</i>
+            <i class="material-icons clear-icon" ng-if="!plan.ultraHd">clear</i>
+        </li>
+        <li>
+            <i class="material-icons check-icon" ng-if="plan.allDevices">check</i>
+            <i class="material-icons clear-icon" ng-if="!plan.allDevices">clear</i>
+        </li>
+        <li>
+            <i class="material-icons check-icon" ng-if="plan.cancelAnytime">check</i>
+            <i class="material-icons clear-icon" ng-if="!plan.cancelAnytime">clear</i>
+        </li>
+        <li>
+            <i class="material-icons check-icon" ng-if="plan.firstMonthFree">check</i>
+            <i class="material-icons clear-icon" ng-if="!plan.firstMonthFree">clear</i>
+        </li>
         <li>
             <input type="radio" id="userPlan" name="userPlan" ng-model="regCtrl.selectedUserPlan" value={{plan}}
                    class="btn btn-md btn-danger" required/>

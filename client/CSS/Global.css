@@ -8,12 +8,11 @@ body {
     color: white;
 }
 
-section{
+section {
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
-
-.error p{
-    color:red;
+.error p {
+    color: red;
 }
