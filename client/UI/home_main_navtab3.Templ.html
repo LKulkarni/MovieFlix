@@ -1,0 +1,46 @@
+<!-- Home page navtab 3 template -->
+
+<div class="columns title">
+    <ul class="price">
+        <li class="header">Plans</li>
+        <li class="grey">Cost / month</li>
+        <li>Screens</li>
+        <li class="title_col">HD Quality</li>
+        <li class="title_col">Ultra HD</li>
+        <li class="title_col">PC, Tablets and more</li>
+        <li class="title_col">Cancel Any Time</li>
+        <li class="title_col">First Month Free</li>
+        <li class="title_col" style="color:transparent">NULL</li>
+
+    </ul>
+</div>
+<div ng-repeat="plan in ctrl.allPlans | orderBy:'screens'" class="columns">
+    <ul class="price">
+        <li class="header">{{plan.planName}}</li>
+        <li class="grey">{{plan.cost}} / month</li>
+        <li>{{plan.screens}}</li>
+        <li>
+            <i class="material-icons check-icon" ng-if="plan.hd">check</i>
+            <i class="material-icons clear-icon" ng-if="!plan.hd">clear</i>
+        </li>
+        <li>
+            <i class="material-icons check-icon" ng-if="plan.ultraHd">check</i>
+            <i class="material-icons clear-icon" ng-if="!plan.ultraHd">clear</i>
+        </li>
+        <li>
+            <i class="material-icons check-icon" ng-if="plan.allDevices">check</i>
+            <i class="material-icons clear-icon" ng-if="!plan.allDevices">clear</i>
+        </li>
+        <li>
+            <i class="material-icons check-icon" ng-if="plan.cancelAnytime">check</i>
+            <i class="material-icons clear-icon" ng-if="!plan.cancelAnytime">clear</i>
+        </li>
+        <li>
+            <i class="material-icons check-icon" ng-if="plan.firstMonthFree">check</i>
+            <i class="material-icons clear-icon" ng-if="!plan.firstMonthFree">clear</i>
+        </li>
+        <li>
+            <a href="#/register" class="btn btn-md btn-danger">Sign Up</a>
+        </li>
+    </ul>
+</div>

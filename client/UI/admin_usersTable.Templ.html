@@ -1,0 +1,52 @@
+<!-- User list table template -->
+
+<table class="table" id="moviesTable">
+    <div class="row" id="searchContainer">
+        <div class=" col-md-4 col-md-offset-4">
+            <div class="input-group">
+                <input type="text" ng-model="adminHomeCtrl.searchFilter2" class="form-control"
+                       placeholder="Filter by Title">
+                <span class="input-group-btn">
+        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+      </span>
+            </div>
+        </div>
+        <div col-md-offset-1 col-md-2><select class="form-control" ng-model="adminHomeCtrl.sorter2.by"
+                                              placeholder="Sort By"
+                                              autofocus>
+            <option value="">Sort By</option>
+            <option value="firstName">Name</option>
+            <option value="memberSince">Join Date</option>
+        </select></div>
+    </div>
+
+    <thead>
+    <tr>
+        <th></th>
+        <th></th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Date of Birth</th>
+        <th>Phone No</th>
+        <th>Member Since</th>
+        <th>Active Status</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="user in adminHomeCtrl.users | filter:adminHomeCtrl.searchFilter2 | orderBy:adminHomeCtrl.sorter2.by: false ">
+        <td>
+            <button class="btn btn-sm btn-danger" ng-click="adminHomeCtrl.deleteUser(user.id)">x</button>
+        </td>
+        <td><img ng-src="" style="max-height:100px; max-width:100px;" alt={{video.title}}></td>
+        <td>{{user.firstName}} {{user.lastName}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.dateOfBirth | date:'yyyy-MM-dd'}}</td>
+        <td>{{user.phoneNo}}</td>
+        <td>{{user.memberSince | date:'yyyy-MM-dd'}}</td>
+        <td ng-if="user.active">Yes</td>
+        <td ng-if="!user.active">No</td>
+    </tr>
+
+    </tbody>
+</table>

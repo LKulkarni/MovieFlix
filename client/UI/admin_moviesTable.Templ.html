@@ -1,0 +1,62 @@
+<!-- Movies list table template -->
+
+<table class="table" id="moviesTable">
+    <div class="row" id="searchContainer">
+        <div class=" col-md-4 col-md-offset-4">
+            <div class="input-group">
+                <input type="text" ng-model="adminHomeCtrl.searchFilter.title" class="form-control"
+                       placeholder="Filter by Title">
+                <span class="input-group-btn">
+        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+      </span>
+            </div>
+        </div>
+        <div col-md-offset-1 col-md-2><select class="form-control" ng-model="adminHomeCtrl.sorter.by" placeholder="Sort By"
+                                              autofocus>
+            <option value="">Sort By</option>
+            <option value="title">Title</option>
+            <option value="released">Year</option>
+            <option value="imdbRating">imdb Ratings</option>
+            <option value="rating">Ratings</option>
+        </select></div>
+    </div>
+
+    <thead>
+    <tr>
+        <th></th>
+        <th>Poster</th>
+        <th>Title</th>
+        <th>Year</th>
+        <th>Type</th>
+        <th>Genre</th>
+        <th>Actors</th>
+        <th>Directors</th>
+        <th>Ratings</th>
+        <th>imdb Id</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="video in adminHomeCtrl.videos | filter:adminHomeCtrl.searchFilter | orderBy:adminHomeCtrl.sorter.by: false ">
+        <td>
+            <button class="btn btn-sm btn-danger" ng-click="adminHomeCtrl.deleteVideo(video.id)">x</button>
+        </td>
+        <td><img ng-src="{{video.poster}}" style="max-height:100px; max-width:100px;" alt={{video.title}}></td>
+        <td>{{video.title}}</td>
+        <td>{{video.released | date:'yyyy'}}</td>
+        <td>{{video.type}}</td>
+        <td>{{video.genre}}</td>
+        <td>{{video.actors}}</td>
+        <td>{{video.director}}</td>
+        <td>{{video.ratings}}</td>
+        <td><a href="http://www.imdb.com/title/{{video.imdbID}}/" target="_blank">{{video.imdbID}}</a></td>
+        <td> <button class="btn btn-md btn-primary" data-toggle="modal" data-target="#editMovieModal" ng-click="adminHomeCtrl.setCurrentVideo(video)">Edit</button></td>
+    </tr>
+    </tbody>
+</table>
+
+<div class="modal" id="editMovieModal" ng-include="'../UI/admin_movies_EditModal.Templ.html'">
+</div>
+
+
+

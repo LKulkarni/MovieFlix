@@ -1,0 +1,121 @@
+/* CSS for homepage */
+
+.jumbotron {
+    height: 600px;
+    background: url("../Resources/jumbotron.jpg");
+    background-size: contain;
+    margin-bottom: 5px;
+    animation: zoomjumbo 4s ease-out;
+}
+
+#jumbotron-contents-micro {
+    display: none;
+}
+
+#jumbotron-contents {
+    margin-top: 60px;
+    color: white;
+    font-weight: 600;
+    position: static;
+    background: rgba(0, 0, 0, 1);
+    background-color: transparent;
+    margin-top: 150px;
+    margin-left: 50px;
+    max-width: 350px;
+    max-height: 300px;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: inset 0px 0px 109px 41px rgba(0, 0, 0, 0.6);
+}
+
+@keyframes zoomjumbo {
+    0% {
+        transform: scale(0.95);
+    }
+}
+
+#jumbotron-contents a#latestLink {
+    font-weight: 500;
+    color: white;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#navtabs {
+    width: 70%;
+    margin: auto;
+}
+
+/* Nav-tabs*/
+#navtabs ul li {
+    text-align: center;
+    color: white;
+}
+
+#navtabs ul li p {
+    color: grey;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 0;
+}
+
+#navtabs ul li a p .material-icons {
+    font-size: 32px;
+    display: block;
+}
+
+#navtabs .nav-pills > li.active a p, #navtabs .nav-pills > li.active > a, #navtabs .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover {
+    color: white;
+    background-color: transparent;
+}
+
+#navtabs ul li a:hover, #navtabs ul li a p:hover {
+    background: none;
+    color: white;
+}
+
+div#watchanywhere .thumbnail {
+    background: transparent;
+    border: none;
+}
+
+div#watchanywhere .thumbnail .caption h3, div#watchanywhere .thumbnail .caption p {
+    color: white;
+    text-align: center;
+}
+
+.poster {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 4px;
+}
+
+/*Responsive*/
+@media screen and (max-width: 600px) {
+    #jumbotron-contents {
+        display: none;
+
+    }
+
+    .jumbotron {
+        height: 150px;
+        background: url("../Resources/jumbotron.jpg");
+        background-size: contain;
+        animation: zoomjumbo 4s ease-out;
+        margin-bottom: 10px;
+    }
+
+    #jumbotron-contents-micro {
+        text-align: center;
+        display: block;
+        color: white;
+        font-weight: 600;
+        max-width: 100%;
+        overflow: hidden;
+        padding: 5px;
+        margin: 5px auto;
+        margin-top: -10px;
+
+    }
+
+}

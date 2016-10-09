@@ -1,0 +1,81 @@
+<!-- User movies container template -->
+
+<div class="container-fluid" id="userMoviesContainer">
+    <!--Watched-->
+    <div class="row" id="watchedList">
+        <ul ng-repeat="video in lc.user.watched">
+            <li>
+                <div>{{video.title}}</div>
+            </li>
+        </ul>
+
+    </div>
+
+    <!--Search bar-->
+    <div class="row" id="searchContainer">
+        <div class=" col-md-4 col-md-offset-3">
+            <div class="input-group">
+                <input type="text" ng-model="homeCtrl.searchFilter" class="form-control"
+                       placeholder="Filter by Title, Genre, Actors..."/>
+                <span class="input-group-btn">
+        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                </span>
+            </div>
+        </div>
+        <div class="col-md-1"><select class="form-control" ng-model="homeCtrl.sorter.by" placeholder="Sort By"
+                                      autofocus>
+            <option value="">Sort By</option>
+            <option value="title">Title</option>
+            <option value="released">Year</option>
+            <option value="imdbRating">imdb Ratings</option>
+            <option value="imdbVotes">imdb Votes</option>
+            <option value="rating">Ratings</option>
+        </select>
+        </div>
+        <div class="col-md-2 col-md-offset-1">
+            <label for="reverse">Reverse</label>
+            <input style="background: transparent; margin: 0;" id="reverse" type="checkbox"
+                   ng-model="homeCtrl.sorter.reverse"/>
+
+        </div>
+    </div>
+    <div id="moviesContainer">
+        <div class="row">
+            <div class="col-md-4 tile"
+                 ng-repeat="video in homeCtrl.allVideos | filter:homeCtrl.searchFilter | orderBy:homeCtrl.sorter.by: homeCtrl.sorter.reverse">
+                <div class="thumbnail">
+                    <img ng-src="{{video.poster}}"
+                         alt={{video.title}}>
+                    <div class="caption">
+                        <h4 class="title">{{video.title}}</h4>
+                        <p><h4>Year: </h4> {{video.released | date:'yyyy'}} <h4 style="margin-left: 20px">IMDB
+                        Ratings: </h4>
+                        {{video.imdbRating}}</p>
+                        <p><h4>Genre: </h4>{{video.genre}}</p>
+                        <p>Ratings:</p>
+                        <div class="row">
+                            <div class="col-md-2 col-md-offset-1">
+                                <button class="btn  btn-sm btn-primary" ng-click="homeCtrl.addWatched(lc.user,video)">
+                                    Watch <i class="material-icons">visibility</i>
+                                </button>
+                            </div>
+                            <div class="col-md-2 col-md-offset-1">
+                                <button class="btn  btn-sm btn-danger">Liked <i class="material-icons">favorite</i>
+                                </button>
+                            </div>
+                            <div class="col-md-2 col-md-offset-1">
+                                <button class="btn btn-sm btn-default" data-toggle="modal" data-target="#movieModal"
+                                        ng-click="homeCtrl.setCurrent(video)">Info<i class="material-icons">info</i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal" id="movieModal" ng-include="'../UI/user_movies_InfoModal.Templ.html'">
+    </div>
+</div>

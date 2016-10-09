@@ -1,0 +1,66 @@
+/*
+CSS for User Home Page
+*/
+
+#userMoviesContainer {
+    width: 80%;
+    margin: auto;
+}
+
+#searchContainer {
+    margin-bottom: 20px;
+}
+
+.thumbnail {
+    height: 450px;
+    max-height: 450px;
+    overflow: hidden;
+}
+
+.thumbnail:hover {
+    box-shadow: 0 5px 12px 0 white;
+    animation: zoomtile 0.5s;
+}
+
+.comments{
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background: gray;
+    border-radius: 2px;
+}
+
+@keyframes zoomtile {
+    0% {
+        transform: scale(.90);
+    }
+}
+
+#moviesContainer .thumbnail img {
+
+    height: 200px;
+    width: auto;
+    max-height: 200px;
+    max-width: 200px;
+}
+
+#moviesContainer .thumbnail .caption h4 {
+    display: inline;
+    color: #3073dd;
+}
+
+#moviesContainer .thumbnail .caption h4.title {
+    color: gold;
+    width: 100%;
+    text-align: center;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+select.form-control {
+    width: auto;
+}
+
+#movieModal {
+    color: black;
+}

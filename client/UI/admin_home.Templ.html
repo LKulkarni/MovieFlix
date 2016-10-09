@@ -1,0 +1,27 @@
+<!-- Admin Home Container Template -->
+
+<div class="container-fluid">
+    <h1>Welcome Admin</h1>
+
+    <div class="container" id="adminPanel">
+        <h2>Options</h2>
+        <ul class="nav nav-pills">
+            <li class="active"><a data-toggle="pill" href="/adminhome/#movieList">Movie List</a></li>
+            <li><a data-toggle="pill" href="/adminhome/#addMovie">Add Movie</a></li>
+            <li><a data-toggle="pill" href="/adminhome/#userList">User List</a></li>
+
+        </ul>
+
+        <div class="tab-content">
+            <div id="movieList" class="tab-pane fade in active" ng-include="'../UI/admin_moviesTable.Templ.html'">
+
+            </div>
+            <div id="addMovie" class="tab-pane fade" ng-include="'../UI/admin_addMovie.Templ.html'">
+
+            </div>
+            <div id="userList" class="tab-pane fade" ng-include="'../UI/admin_usersTable.Templ.html'">
+
+            </div>
+        </div>
+    </div>
+</div>

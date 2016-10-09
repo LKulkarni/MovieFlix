@@ -1,0 +1,28 @@
+/*
+CSS for Registration Page
+*/
+
+label, input {
+    display: inline;
+}
+
+.row {
+    margin: 3px;
+}
+
+input[type="radio"] {
+    padding: 0;
+    margin: auto;
+    width: 1.5em;
+    height: 1.5em;
+    text-align: center;
+}
+
+fieldset {
+    margin-top: 15px;
+}
+
+#signUpFormContainer {
+    width: 80%;
+    margin: auto;
+}
