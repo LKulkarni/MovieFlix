@@ -30,7 +30,7 @@
             <div class="row">
                 <div class="col-md-7"><label for="firstName">First Name</label>
                     <input class="form-control" type="text" placeholder="Enter First Name here" id="firstName"
-                           name="firstName"  minlength="2" ng-model="regCtrl.user.firstName" required/></div>
+                           name="firstName" minlength="2" ng-model="regCtrl.user.firstName" required/></div>
                 <div class="col-md-5 error" ng-messages="regForm.firstName.$error" ng-if="regForm.firstName.$dirty">
                     <p ng-message="required">First Name Required!</p>
                     <p ng-message="minlength">First Name too short!</p>
@@ -71,7 +71,7 @@
         </fieldset>
         <fieldset>
             <legend><h2>Pick your plan</h2></legend>
-            <div ng-include="'../UI/userRegistration_Plans.Templ.html'">
+            <div ng-include="'../UI/user_registration_plans.Templ.html'">
             </div>
 
         </fieldset>
@@ -108,13 +108,15 @@
                 <p ng-message="required">CVV required</p>
             </div>
 
-            <div class="col-md-2">MM<select name="cardMM" class="form-control" placeholder="MM" ng-model="regCtrl.cardMM">
+            <div class="col-md-2">MM<select name="cardMM" class="form-control" placeholder="MM"
+                                            ng-model="regCtrl.cardMM">
                 <option ng-repeat="month in regCtrl.mm" value="{{month}}">{{month}}</option>
             </select></div>
             <div class="col-md-1 error" ng-messages="regForm.cardMM.$error" ng-if="regForm.cardMM.$dirty">
                 <p ng-message="required">Expiry Month required</p>
             </div>
-            <div class="col-md-2">YYYY<select name="cardYYYY" class="form-control" placeholder=YYYY"" ng-model="regCtrl.cardYYYY">
+            <div class="col-md-2">YYYY<select name="cardYYYY" class="form-control" placeholder=YYYY""
+                                              ng-model="regCtrl.cardYYYY">
                 <option ng-repeat="year in regCtrl.yyyy" value="{{year}}">{{year}}</option>
             </select>
             </div>

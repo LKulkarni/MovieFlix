@@ -46,14 +46,14 @@
             )
             .when('/register',
                 {
-                    templateUrl: '../UI/userRegistration.Templ.html',
+                    templateUrl: '../UI/user_registration.Templ.html',
                     controller: 'user_registrationController',
                     controllerAs: 'regCtrl'
                 }
             )
             .when('/userhome',
                 {
-                    templateUrl: '../UI/userMovies.Templ.html',
+                    templateUrl: '../UI/user_movies.Templ.html',
                     controller: 'user_homeController',
                     controllerAs: 'homeCtrl'
                 }
@@ -61,7 +61,7 @@
 
             .when('/admin/home',
                 {
-                    templateUrl: '../UI/adminHome.Templ.html',
+                    templateUrl: '../UI/admin_home.Templ.html',
                     controller: 'admin_homeController',
                     controllerAs: 'adminHomeCtrl'
                 }
