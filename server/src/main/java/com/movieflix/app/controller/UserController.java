@@ -61,8 +61,7 @@ public class UserController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST, value = "/authenticate")
-	public User authenticateUser(@RequestParam(name = "email") String email,
-			@RequestParam(name = "pass") String password) {
-		return service.authenticateUser(email, password);
+	public User authenticateUser(@RequestBody User u) {
+		return service.authenticateUser(u.getEmail(), u.getPassword());
 	}
 }
