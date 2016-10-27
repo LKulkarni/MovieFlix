@@ -42,7 +42,7 @@
                 method: 'POST',
                 cache:false,
                 url: 'http://localhost:8080/RestAPI/app/users/authenticate',
-                params: {email: username, pass: password}
+                data: {email: username, password: password}
             })
                 .then(function (response) {
                     return response.data;
